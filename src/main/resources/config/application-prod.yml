@@ -16,7 +16,7 @@
 logging:
   level:
     ROOT: INFO
-    com.ayso.pe: INFO
+    com.sigma: INFO
     io.github.jhipster: INFO
 
 eureka:
@@ -58,7 +58,7 @@ spring:
     properties:
       hibernate.id.new_generator_mappings: true
       hibernate.connection.provider_disables_autocommit: true
-      hibernate.cache.use_second_level_cache: false
+      hibernate.cache.use_second_level_cache: true
       hibernate.cache.use_query_cache: false
       hibernate.generate_statistics: false
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
@@ -129,7 +129,7 @@ jhipster:
         # - In the JHipster Registry (which includes a Spring Cloud Config server)
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
-        base64-secret: MzFmMzYzNTFmZTBhNjcxZmY0NTQzYjEwM2ZjNDYxNjNiM2Y5ODAxZTBlZGY2Zjk4N2UzOWE4MzI2OTdlOWU2NmY2MjZmYWFiNTRlNjkxYmJkNGRjN2YxNGQxNzVhM2Q0MjliMTAxMTUxMzFjYjFjNDZjNjc2MDIzYWMzN2EzMDY=
+        base64-secret: NTlkMDM3NmVjOTQ1NDI5YTc2ZGE1ZjQyMzRjYWU5MjFjZjM1N2IzN2E1ODlhZDcyYzExOGMxYzEwYTNmNDkwY2I0YTE4YTYxYmI0MzQ3YjJlZjI3OTllNmQxYjUwNzM4Nzk4YWE0NDRkMDRkZGM3YzdiNGIyMGNiM2Q1ODVhNDg=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
         token-validity-in-seconds-for-remember-me: 2592000

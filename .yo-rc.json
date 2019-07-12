@@ -1,17 +1,17 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.ayso.pe"
+      "packageName": "com.sigma"
     },
     "jhipsterVersion": "6.1.2",
     "applicationType": "gateway",
     "baseName": "gateway",
-    "packageName": "com.ayso.pe",
-    "packageFolder": "com/ayso/pe",
+    "packageName": "com.sigma",
+    "packageFolder": "com/sigma",
     "serverPort": "8080",
     "authenticationType": "jwt",
     "cacheProvider": "ehcache",
-    "enableHibernateCache": false,
+    "enableHibernateCache": true,
     "websocket": false,
     "databaseType": "sql",
     "devDatabaseType": "h2Disk",
@@ -21,13 +21,13 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "gradle",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "MzFmMzYzNTFmZTBhNjcxZmY0NTQzYjEwM2ZjNDYxNjNiM2Y5ODAxZTBlZGY2Zjk4N2UzOWE4MzI2OTdlOWU2NmY2MjZmYWFiNTRlNjkxYmJkNGRjN2YxNGQxNzVhM2Q0MjliMTAxMTUxMzFjYjFjNDZjNjc2MDIzYWMzN2EzMDY=",
+    "jwtSecretKey": "NTlkMDM3NmVjOTQ1NDI5YTc2ZGE1ZjQyMzRjYWU5MjFjZjM1N2IzN2E1ODlhZDcyYzExOGMxYzEwYTNmNDkwY2I0YTE4YTYxYmI0MzQ3YjJlZjI3OTllNmQxYjUwNzM4Nzk4YWE0NDRkMDRkZGM3YzdiNGIyMGNiM2Q1ODVhNDg=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
     "clientTheme": "sandstone",
     "clientThemeVariant": "primary",
-    "testFrameworks": ["gatling"],
+    "testFrameworks": ["gatling", "cucumber", "protractor"],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
