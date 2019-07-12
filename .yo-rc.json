@@ -1,0 +1,37 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.ayso.pe"
+    },
+    "jhipsterVersion": "6.1.2",
+    "applicationType": "gateway",
+    "baseName": "gateway",
+    "packageName": "com.ayso.pe",
+    "packageFolder": "com/ayso/pe",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": "eureka",
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MzFmMzYzNTFmZTBhNjcxZmY0NTQzYjEwM2ZjNDYxNjNiM2Y5ODAxZTBlZGY2Zjk4N2UzOWE4MzI2OTdlOWU2NmY2MjZmYWFiNTRlNjkxYmJkNGRjN2YxNGQxNzVhM2Q0MjliMTAxMTUxMzFjYjFjNDZjNjc2MDIzYWMzN2EzMDY=",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "sandstone",
+    "clientThemeVariant": "primary",
+    "testFrameworks": ["gatling"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false
+  }
+}
