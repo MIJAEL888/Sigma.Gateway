@@ -1,7 +1,8 @@
 {
   "generator-jhipster": {
     "promptValues": {
-      "packageName": "com.sigma"
+      "packageName": "com.sigma",
+      "nativeLanguage": "en"
     },
     "jhipsterVersion": "6.1.2",
     "applicationType": "gateway",
@@ -21,7 +22,7 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "gradle",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "NTlkMDM3NmVjOTQ1NDI5YTc2ZGE1ZjQyMzRjYWU5MjFjZjM1N2IzN2E1ODlhZDcyYzExOGMxYzEwYTNmNDkwY2I0YTE4YTYxYmI0MzQ3YjJlZjI3OTllNmQxYjUwNzM4Nzk4YWE0NDRkMDRkZGM3YzdiNGIyMGNiM2Q1ODVhNDg=",
+    "jwtSecretKey": "N2ZlMTg0NTA0NjM3Nzk0MGI4NDE1OGVmNDk5ZjMzN2MwOGRhNzYzMmY2YTQyNGM0ZjE0ZGY5ODA4Njk1YmQ5ZmMwMjc3ZThhN2M4ZDFmYWEwMjEwZjBmZjY2NTg3YmM0NjViODViYjFhMTYyMDU5MzBjZGMyNTdmMzE4YjEyNTE=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
@@ -32,6 +33,8 @@
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
-    "enableTranslation": false
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "es"]
   }
 }
