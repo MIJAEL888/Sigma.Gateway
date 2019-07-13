@@ -7,6 +7,11 @@ import { GatewaySharedModule } from 'app/shared';
 
 import {
   adminState,
+  AuditsComponent,
+  UserMgmtComponent,
+  UserMgmtDetailComponent,
+  UserMgmtUpdateComponent,
+  UserMgmtDeleteDialogComponent,
   LogsComponent,
   JhiMetricsMonitoringComponent,
   JhiHealthModalComponent,
@@ -23,6 +28,11 @@ import {
     RouterModule.forChild(adminState)
   ],
   declarations: [
+    AuditsComponent,
+    UserMgmtComponent,
+    UserMgmtDetailComponent,
+    UserMgmtUpdateComponent,
+    UserMgmtDeleteDialogComponent,
     LogsComponent,
     JhiConfigurationComponent,
     JhiHealthCheckComponent,
@@ -32,7 +42,7 @@ import {
     JhiMetricsMonitoringComponent
   ],
   providers: [{ provide: JhiLanguageService, useClass: JhiLanguageService }],
-  entryComponents: [JhiHealthModalComponent],
+  entryComponents: [UserMgmtDeleteDialogComponent, JhiHealthModalComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class GatewayAdminModule {
