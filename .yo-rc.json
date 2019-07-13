@@ -2,7 +2,7 @@
   "generator-jhipster": {
     "promptValues": {
       "packageName": "com.sigma",
-      "nativeLanguage": "en"
+      "nativeLanguage": "es"
     },
     "jhipsterVersion": "6.1.2",
     "applicationType": "gateway",
@@ -22,19 +22,19 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "gradle",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "YWQ1YTFmYjA0NjAxZmRmOTY2NjJmODY4MjVlMTJiNjBmMDBkZTU1ZDgwMzEwM2Q0MWM2Mzg2ZjZmMzkxZmI3NDRlNGQwYmNjYjVmZDU3ZmJmOTEyYzFiZTkxODVlZWQyYjk4YjVkZDliNTE2MjNiMTY3NTNmNWZjYThjNjA3ZjM=",
+    "jwtSecretKey": "ZTI0Njc0MTBkYTQxYmI5NTUxMGU3Mzk4MDkwYWQzZDg1OWFjNTI1ZTdmNzk2OGZhNmZkM2UzZDY0OTFkYjE5ZjhmYTQ4ZjBhNWNkZDZhMDFmMTYwYmYyYTM3NTI0NTRiY2Q0ZjMyNzFlMWFhNjRmMDc2NTk2ZWE4NDYyM2QyYzQ=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
-    "clientTheme": "none",
-    "clientThemeVariant": "",
+    "clientTheme": "litera",
+    "clientThemeVariant": "light",
     "testFrameworks": ["gatling", "cucumber", "protractor"],
     "jhiPrefix": "jhi",
     "entitySuffix": "",
     "dtoSuffix": "DTO",
     "otherModules": [],
     "enableTranslation": true,
-    "nativeLanguage": "en",
-    "languages": ["en", "es"]
+    "nativeLanguage": "es",
+    "languages": ["es", "en"]
   }
 }
