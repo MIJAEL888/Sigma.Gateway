@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "logisticaTipoSeguro": {
+      "home": {
+        "title": "Tipo Seguros",
+        "createLabel": "Create a new Tipo Seguro",
+        "createOrEditLabel": "Create or edit a Tipo Seguro",
+        "notFound": "No Tipo Seguro found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Seguro {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Seguro"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "fechaCaudicidad": "Fecha Caudicidad",
+      "codigoTipoSeguro": "Codigo Tipo Seguro",
+      "monitorista": "Monitorista"
+    }
+  },
+  "logisticaApp": {
+    "logisticaTipoSeguro": {
+      "created": "A new Tipo Seguro is created with identifier {{ param }}",
+      "updated": "A Tipo Seguro is updated with identifier {{ param }}",
+      "deleted": "A Tipo Seguro is deleted with identifier {{ param }}"
+    }
+  }
+}

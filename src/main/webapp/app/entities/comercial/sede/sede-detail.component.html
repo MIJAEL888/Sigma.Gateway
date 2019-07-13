@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sede">
+            <h2><span jhiTranslate="gatewayApp.comercialSede.detail.title">Sede</span> {{sede.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialSede.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{sede.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.referencia">Referencia</span></dt>
+                <dd>
+                    <span>{{sede.referencia}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.latitud">Latitud</span></dt>
+                <dd>
+                    <span>{{sede.latitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.longitud">Longitud</span></dt>
+                <dd>
+                    <span>{{sede.longitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.actividad">Actividad</span></dt>
+                <dd>
+                    <span>{{sede.actividad}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{sede.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{sede.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{sede.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.rutaDocEstudio">Ruta Doc Estudio</span></dt>
+                <dd>
+                    <span>{{sede.rutaDocEstudio}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.nombreDocEstudio">Nombre Doc Estudio</span></dt>
+                <dd>
+                    <span>{{sede.nombreDocEstudio}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.documentoEstudio">Documento Estudio</span></dt>
+                <dd>
+                    <div *ngIf="sede.documentoEstudio">
+                        <a (click)="openFile(sede.documentoEstudioContentType, sede.documentoEstudio)" jhiTranslate="entity.action.open">open</a>
+                        {{sede.documentoEstudioContentType}}, {{byteSize(sede.documentoEstudio)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.cliente">Cliente</span></dt>
+                <dd>
+                    <div *ngIf="sede.cliente">
+                        <a [routerLink]="['/cliente', sede.cliente?.id, 'view']">{{sede.cliente?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialSede.distrito">Distrito</span></dt>
+                <dd>
+                    <div *ngIf="sede.distrito">
+                        <a [routerLink]="['/distrito', sede.distrito?.id, 'view']">{{sede.distrito?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/sede', sede.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

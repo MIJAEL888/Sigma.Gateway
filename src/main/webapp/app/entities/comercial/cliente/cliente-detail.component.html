@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cliente">
+            <h2><span jhiTranslate="gatewayApp.comercialCliente.detail.title">Cliente</span> {{cliente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.razonSocial">Razon Social</span></dt>
+                <dd>
+                    <span>{{cliente.razonSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{cliente.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.ruc">Ruc</span></dt>
+                <dd>
+                    <span>{{cliente.ruc}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{cliente.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.correo">Correo</span></dt>
+                <dd>
+                    <span>{{cliente.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.nombreContacto">Nombre Contacto</span></dt>
+                <dd>
+                    <span>{{cliente.nombreContacto}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.actividad">Actividad</span></dt>
+                <dd>
+                    <span>{{cliente.actividad}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{cliente.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{cliente.fechaCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialCliente.codigoZona">Codigo Zona</span></dt>
+                <dd>
+                    <span>{{cliente.codigoZona}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

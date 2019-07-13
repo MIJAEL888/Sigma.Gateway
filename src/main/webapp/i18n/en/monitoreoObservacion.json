@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "monitoreoObservacion": {
+      "home": {
+        "title": "Observacions",
+        "createLabel": "Create a new Observacion",
+        "createOrEditLabel": "Create or edit a Observacion",
+        "notFound": "No Observacion found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Observacion {{ id }}?"
+      },
+      "detail": {
+        "title": "Observacion"
+      },
+      "descripcion": "Descripcion",
+      "comentario": "Comentario",
+      "codigoMonitorista": "Codigo Monitorista",
+      "proyecto": "Proyecto",
+      "componente": "Componente"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoObservacion": {
+      "created": "A new Observacion is created with identifier {{ param }}",
+      "updated": "A Observacion is updated with identifier {{ param }}",
+      "deleted": "A Observacion is deleted with identifier {{ param }}"
+    }
+  }
+}

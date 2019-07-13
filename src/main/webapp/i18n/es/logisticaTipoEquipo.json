@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "logisticaTipoEquipo": {
+      "home": {
+        "title": "Tipo Equipos",
+        "createLabel": "Crear nuevo Tipo Equipo",
+        "createOrEditLabel": "Crear o editar Tipo Equipo",
+        "notFound": "No Tipo Equipo found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Equipo {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Equipo"
+      },
+      "nombre": "Nombre",
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "modelo": "Modelo"
+    }
+  },
+  "logisticaApp": {
+    "logisticaTipoEquipo": {
+      "created": "Un nuevo Tipo Equipo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Equipo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Equipo ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,137 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-laboratorio-heading" jhiTranslate="gatewayApp.logisticaLaboratorio.home.createOrEditLabel">Create or edit a Laboratorio</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.razonSocial" for="field_razonSocial">Razon Social</label>
+                    <input type="text" class="form-control" name="razonSocial" id="field_razonSocial"
+                           formControlName="razonSocial"/>
+                    <div *ngIf="editForm.get('razonSocial').invalid && (editForm.get('razonSocial').dirty || editForm.get('razonSocial').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('razonSocial').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                    <div *ngIf="editForm.get('direccion').invalid && (editForm.get('direccion').dirty || editForm.get('direccion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('direccion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.ruc" for="field_ruc">Ruc</label>
+                    <input type="text" class="form-control" name="ruc" id="field_ruc"
+                           formControlName="ruc"/>
+                    <div *ngIf="editForm.get('ruc').invalid && (editForm.get('ruc').dirty || editForm.get('ruc').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('ruc').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.acreditadoPor" for="field_acreditadoPor">Acreditado Por</label>
+                    <input type="text" class="form-control" name="acreditadoPor" id="field_acreditadoPor"
+                           formControlName="acreditadoPor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.numeroAcreditacion" for="field_numeroAcreditacion">Numero Acreditacion</label>
+                    <input type="text" class="form-control" name="numeroAcreditacion" id="field_numeroAcreditacion"
+                           formControlName="numeroAcreditacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.rutaDocAcreditacion" for="field_rutaDocAcreditacion">Ruta Doc Acreditacion</label>
+                    <input type="text" class="form-control" name="rutaDocAcreditacion" id="field_rutaDocAcreditacion"
+                           formControlName="rutaDocAcreditacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.nombreDocAcreditacion" for="field_nombreDocAcreditacion">Nombre Doc Acreditacion</label>
+                    <input type="text" class="form-control" name="nombreDocAcreditacion" id="field_nombreDocAcreditacion"
+                           formControlName="nombreDocAcreditacion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.documentoAcreditacion" for="field_documentoAcreditacion">Documento Acreditacion</label>
+                    <div>
+                        <div *ngIf="editForm.get('documentoAcreditacion').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('documentoAcreditacionContentType').value, editForm.get('documentoAcreditacion').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('documentoAcreditacionContentType').value}}, {{byteSize(editForm.get('documentoAcreditacion').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({documentoAcreditacion: null});editForm.patchValue({documentoAcreditacionContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_documentoAcreditacion" (change)="setFileData($event, 'documentoAcreditacion', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="documentoAcreditacion" id="field_documentoAcreditacion"
+                           formControlName="documentoAcreditacion"/>
+                    <input type="hidden" class="form-control" name="documentoAcreditacionContentType" id="field_documentoAcreditacionContentType"
+                           formControlName="documentoAcreditacionContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaDesde" for="field_vigenciaDesde">Vigencia Desde</label>
+                    <div class="input-group">
+                        <input id="field_vigenciaDesde" type="text" class="form-control" name="vigenciaDesde" ngbDatepicker  #vigenciaDesdeDp="ngbDatepicker" formControlName="vigenciaDesde"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="vigenciaDesdeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaHasta" for="field_vigenciaHasta">Vigencia Hasta</label>
+                    <div class="input-group">
+                        <input id="field_vigenciaHasta" type="text" class="form-control" name="vigenciaHasta" ngbDatepicker  #vigenciaHastaDp="ngbDatepicker" formControlName="vigenciaHasta"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="vigenciaHastaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.telefono" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.correo" for="field_correo">Correo</label>
+                    <input type="text" class="form-control" name="correo" id="field_correo"
+                           formControlName="correo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.nombreContacto" for="field_nombreContacto">Nombre Contacto</label>
+                    <input type="text" class="form-control" name="nombreContacto" id="field_nombreContacto"
+                           formControlName="nombreContacto"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaLaboratorio.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" ngbDatepicker  #fechaCreacionDp="ngbDatepicker" formControlName="fechaCreacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

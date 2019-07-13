@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="laboratorio">
+            <h2><span jhiTranslate="gatewayApp.logisticaLaboratorio.detail.title">Laboratorio</span> {{laboratorio.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.razonSocial">Razon Social</span></dt>
+                <dd>
+                    <span>{{laboratorio.razonSocial}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{laboratorio.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.ruc">Ruc</span></dt>
+                <dd>
+                    <span>{{laboratorio.ruc}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.acreditadoPor">Acreditado Por</span></dt>
+                <dd>
+                    <span>{{laboratorio.acreditadoPor}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.numeroAcreditacion">Numero Acreditacion</span></dt>
+                <dd>
+                    <span>{{laboratorio.numeroAcreditacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.rutaDocAcreditacion">Ruta Doc Acreditacion</span></dt>
+                <dd>
+                    <span>{{laboratorio.rutaDocAcreditacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.nombreDocAcreditacion">Nombre Doc Acreditacion</span></dt>
+                <dd>
+                    <span>{{laboratorio.nombreDocAcreditacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.documentoAcreditacion">Documento Acreditacion</span></dt>
+                <dd>
+                    <div *ngIf="laboratorio.documentoAcreditacion">
+                        <a (click)="openFile(laboratorio.documentoAcreditacionContentType, laboratorio.documentoAcreditacion)" jhiTranslate="entity.action.open">open</a>
+                        {{laboratorio.documentoAcreditacionContentType}}, {{byteSize(laboratorio.documentoAcreditacion)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaDesde">Vigencia Desde</span></dt>
+                <dd>
+                    <span>{{laboratorio.vigenciaDesde}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaHasta">Vigencia Hasta</span></dt>
+                <dd>
+                    <span>{{laboratorio.vigenciaHasta}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.telefono">Telefono</span></dt>
+                <dd>
+                    <span>{{laboratorio.telefono}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.correo">Correo</span></dt>
+                <dd>
+                    <span>{{laboratorio.correo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.nombreContacto">Nombre Contacto</span></dt>
+                <dd>
+                    <span>{{laboratorio.nombreContacto}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaLaboratorio.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{laboratorio.fechaCreacion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/laboratorio', laboratorio.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

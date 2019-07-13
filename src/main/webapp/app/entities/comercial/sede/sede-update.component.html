@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-sede-heading" jhiTranslate="gatewayApp.comercialSede.home.createOrEditLabel">Create or edit a Sede</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                    <div *ngIf="editForm.get('direccion').invalid && (editForm.get('direccion').dirty || editForm.get('direccion').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('direccion').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.referencia" for="field_referencia">Referencia</label>
+                    <input type="text" class="form-control" name="referencia" id="field_referencia"
+                           formControlName="referencia"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.latitud" for="field_latitud">Latitud</label>
+                    <input type="text" class="form-control" name="latitud" id="field_latitud"
+                           formControlName="latitud"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.longitud" for="field_longitud">Longitud</label>
+                    <input type="text" class="form-control" name="longitud" id="field_longitud"
+                           formControlName="longitud"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.actividad" for="field_actividad">Actividad</label>
+                    <textarea class="form-control" name="actividad" id="field_actividad"
+                              formControlName="actividad"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.telefono" for="field_telefono">Telefono</label>
+                    <input type="text" class="form-control" name="telefono" id="field_telefono"
+                           formControlName="telefono"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.descripcion" for="field_descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="field_descripcion"
+                              formControlName="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.comentario" for="field_comentario">Comentario</label>
+                    <textarea class="form-control" name="comentario" id="field_comentario"
+                              formControlName="comentario"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.rutaDocEstudio" for="field_rutaDocEstudio">Ruta Doc Estudio</label>
+                    <input type="text" class="form-control" name="rutaDocEstudio" id="field_rutaDocEstudio"
+                           formControlName="rutaDocEstudio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.nombreDocEstudio" for="field_nombreDocEstudio">Nombre Doc Estudio</label>
+                    <input type="text" class="form-control" name="nombreDocEstudio" id="field_nombreDocEstudio"
+                           formControlName="nombreDocEstudio"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.documentoEstudio" for="field_documentoEstudio">Documento Estudio</label>
+                    <div>
+                        <div *ngIf="editForm.get('documentoEstudio').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('documentoEstudioContentType').value, editForm.get('documentoEstudio').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('documentoEstudioContentType').value}}, {{byteSize(editForm.get('documentoEstudio').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({documentoEstudio: null});editForm.patchValue({documentoEstudioContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_documentoEstudio" (change)="setFileData($event, 'documentoEstudio', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="documentoEstudio" id="field_documentoEstudio"
+                           formControlName="documentoEstudio"/>
+                    <input type="hidden" class="form-control" name="documentoEstudioContentType" id="field_documentoEstudioContentType"
+                           formControlName="documentoEstudioContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.cliente" for="field_cliente">Cliente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" formControlName="cliente">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id === editForm.get('cliente').value?.id ? editForm.get('cliente').value : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.distrito" for="field_distrito">Distrito</label>
+                    <select class="form-control" id="field_distrito" name="distrito" formControlName="distrito">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="distritoOption.id === editForm.get('distrito').value?.id ? editForm.get('distrito').value : distritoOption" *ngFor="let distritoOption of distritos; trackBy: trackDistritoById">{{distritoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "comercialDepartamento": {
+      "home": {
+        "title": "Departamentos",
+        "createLabel": "Create a new Departamento",
+        "createOrEditLabel": "Create or edit a Departamento",
+        "notFound": "No Departamento found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Departamento {{ id }}?"
+      },
+      "detail": {
+        "title": "Departamento"
+      },
+      "nombre": "Nombre",
+      "ubigeo": "Ubigeo",
+      "descripcion": "Descripcion",
+      "provincia": "Provincia"
+    }
+  },
+  "comercialApp": {
+    "comercialDepartamento": {
+      "created": "A new Departamento is created with identifier {{ param }}",
+      "updated": "A Departamento is updated with identifier {{ param }}",
+      "deleted": "A Departamento is deleted with identifier {{ param }}"
+    }
+  }
+}

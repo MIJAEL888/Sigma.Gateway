@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="puntoMonitoreoObs">
+            <h2><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.detail.title">Punto Monitoreo Obs</span> {{puntoMonitoreoObs.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreoObs.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreoObs.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreoObs.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.observacion">Observacion</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreoObs.observacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.puntoMonitoreo">Punto Monitoreo</span></dt>
+                <dd>
+                    <div *ngIf="puntoMonitoreoObs.puntoMonitoreo">
+                        <a [routerLink]="['/punto-monitoreo', puntoMonitoreoObs.puntoMonitoreo?.id, 'view']">{{puntoMonitoreoObs.puntoMonitoreo?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.resultado">Resultado</span></dt>
+                <dd>
+                    <div *ngIf="puntoMonitoreoObs.resultado">
+                        <a [routerLink]="['/resultado', puntoMonitoreoObs.resultado?.id, 'view']">{{puntoMonitoreoObs.resultado?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreoObs.proyecto">Proyecto</span></dt>
+                <dd>
+                    <div *ngIf="puntoMonitoreoObs.proyecto">
+                        <a [routerLink]="['/proyecto', puntoMonitoreoObs.proyecto?.id, 'view']">{{puntoMonitoreoObs.proyecto?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/punto-monitoreo-obs', puntoMonitoreoObs.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

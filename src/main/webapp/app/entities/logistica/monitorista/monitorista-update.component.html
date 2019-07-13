@@ -1,0 +1,90 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-monitorista-heading" jhiTranslate="gatewayApp.logisticaMonitorista.home.createOrEditLabel">Create or edit a Monitorista</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.apellidoPaterno" for="field_apellidoPaterno">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="apellidoPaterno" id="field_apellidoPaterno"
+                           formControlName="apellidoPaterno"/>
+                    <div *ngIf="editForm.get('apellidoPaterno').invalid && (editForm.get('apellidoPaterno').dirty || editForm.get('apellidoPaterno').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidoPaterno').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.apellidoMaterno" for="field_apellidoMaterno">Apellido Materno</label>
+                    <input type="text" class="form-control" name="apellidoMaterno" id="field_apellidoMaterno"
+                           formControlName="apellidoMaterno"/>
+                    <div *ngIf="editForm.get('apellidoMaterno').invalid && (editForm.get('apellidoMaterno').dirty || editForm.get('apellidoMaterno').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidoMaterno').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.dni" for="field_dni">Dni</label>
+                    <input type="text" class="form-control" name="dni" id="field_dni"
+                           formControlName="dni"/>
+                    <div *ngIf="editForm.get('dni').invalid && (editForm.get('dni').dirty || editForm.get('dni').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dni').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker  #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaMonitorista.laboratorio" for="field_laboratorio">Laboratorio</label>
+                    <select class="form-control" id="field_laboratorio" name="laboratorio" formControlName="laboratorio">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="laboratorioOption.id === editForm.get('laboratorio').value?.id ? editForm.get('laboratorio').value : laboratorioOption" *ngFor="let laboratorioOption of laboratorios; trackBy: trackLaboratorioById">{{laboratorioOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="gatewayApp.logisticaMonitorista.tipoSeguro" for="field_tipoSeguros">Tipo Seguro</label>
+                    <select class="form-control" id="field_tipoSeguros" multiple name="tipoSeguros" formControlName="tipoSeguros">
+                        <option [ngValue]="getSelected(editForm.get('tipoSeguros').value, tipoSeguroOption)" *ngFor="let tipoSeguroOption of tiposeguros; trackBy: trackTipoSeguroById">{{tipoSeguroOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

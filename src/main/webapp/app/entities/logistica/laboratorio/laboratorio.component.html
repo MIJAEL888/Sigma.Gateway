@@ -1,0 +1,94 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.logisticaLaboratorio.home.title">Laboratorios</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-laboratorio" [routerLink]="['/laboratorio/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.logisticaLaboratorio.home.createLabel">
+            Create new Laboratorio
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="laboratorios?.length === 0">
+        <span jhiTranslate="gatewayApp.logisticaLaboratorio.home.notFound">No laboratorios found</span>
+    </div>
+    <div class="table-responsive" *ngIf="laboratorios?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="razonSocial"><span jhiTranslate="gatewayApp.logisticaLaboratorio.razonSocial">Razon Social</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="ruc"><span jhiTranslate="gatewayApp.logisticaLaboratorio.ruc">Ruc</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="acreditadoPor"><span jhiTranslate="gatewayApp.logisticaLaboratorio.acreditadoPor">Acreditado Por</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroAcreditacion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.numeroAcreditacion">Numero Acreditacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rutaDocAcreditacion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.rutaDocAcreditacion">Ruta Doc Acreditacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreDocAcreditacion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.nombreDocAcreditacion">Nombre Doc Acreditacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="documentoAcreditacion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.documentoAcreditacion">Documento Acreditacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vigenciaDesde"><span jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaDesde">Vigencia Desde</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="vigenciaHasta"><span jhiTranslate="gatewayApp.logisticaLaboratorio.vigenciaHasta">Vigencia Hasta</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="gatewayApp.logisticaLaboratorio.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="correo"><span jhiTranslate="gatewayApp.logisticaLaboratorio.correo">Correo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreContacto"><span jhiTranslate="gatewayApp.logisticaLaboratorio.nombreContacto">Nombre Contacto</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaCreacion"><span jhiTranslate="gatewayApp.logisticaLaboratorio.fechaCreacion">Fecha Creacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let laboratorio of laboratorios ;trackBy: trackId">
+                <td><a [routerLink]="['/laboratorio', laboratorio.id, 'view' ]">{{laboratorio.id}}</a></td>
+                <td>{{laboratorio.razonSocial}}</td>
+                <td>{{laboratorio.direccion}}</td>
+                <td>{{laboratorio.ruc}}</td>
+                <td>{{laboratorio.acreditadoPor}}</td>
+                <td>{{laboratorio.numeroAcreditacion}}</td>
+                <td>{{laboratorio.rutaDocAcreditacion}}</td>
+                <td>{{laboratorio.nombreDocAcreditacion}}</td>
+                <td>
+                    <a *ngIf="laboratorio.documentoAcreditacion" (click)="openFile(laboratorio.documentoAcreditacionContentType, laboratorio.documentoAcreditacion)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="laboratorio.documentoAcreditacion">{{laboratorio.documentoAcreditacionContentType}}, {{byteSize(laboratorio.documentoAcreditacion)}}</span>
+                </td>
+                <td>{{laboratorio.vigenciaDesde | date:'mediumDate'}}</td>
+                <td>{{laboratorio.vigenciaHasta | date:'mediumDate'}}</td>
+                <td>{{laboratorio.telefono}}</td>
+                <td>{{laboratorio.correo}}</td>
+                <td>{{laboratorio.nombreContacto}}</td>
+                <td>{{laboratorio.fechaCreacion | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/laboratorio', laboratorio.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/laboratorio', laboratorio.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'laboratorio', { outlets: { popup: laboratorio.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="laboratorios?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

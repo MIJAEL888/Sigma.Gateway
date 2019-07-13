@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "monitoreoPuntoMonitoreoObs": {
+      "home": {
+        "title": "Punto Monitoreo Obs",
+        "createLabel": "Create a new Punto Monitoreo Obs",
+        "createOrEditLabel": "Create or edit a Punto Monitoreo Obs",
+        "notFound": "No Punto Monitoreo Obs found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Punto Monitoreo Obs {{ id }}?"
+      },
+      "detail": {
+        "title": "Punto Monitoreo Obs"
+      },
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "comentario": "Comentario",
+      "observacion": "Observacion",
+      "puntoMonitoreo": "Punto Monitoreo",
+      "resultado": "Resultado",
+      "fotografiaMonitoreo": "Fotografia Monitoreo",
+      "proyecto": "Proyecto"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoPuntoMonitoreoObs": {
+      "created": "A new Punto Monitoreo Obs is created with identifier {{ param }}",
+      "updated": "A Punto Monitoreo Obs is updated with identifier {{ param }}",
+      "deleted": "A Punto Monitoreo Obs is deleted with identifier {{ param }}"
+    }
+  }
+}

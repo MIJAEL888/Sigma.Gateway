@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resultadoMetereologia">
+            <h2><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.detail.title">Resultado Metereologia</span> {{resultadoMetereologia.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.fecha">Fecha</span></dt>
+                <dd>
+                    <span>{{resultadoMetereologia.fecha}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.valor">Valor</span></dt>
+                <dd>
+                    <span>{{resultadoMetereologia.valor}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.valorDecimal">Valor Decimal</span></dt>
+                <dd>
+                    <span>{{resultadoMetereologia.valorDecimal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.resultado">Resultado</span></dt>
+                <dd>
+                    <div *ngIf="resultadoMetereologia.resultado">
+                        <a [routerLink]="['/resultado', resultadoMetereologia.resultado?.id, 'view']">{{resultadoMetereologia.resultado?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resultado-metereologia', resultadoMetereologia.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

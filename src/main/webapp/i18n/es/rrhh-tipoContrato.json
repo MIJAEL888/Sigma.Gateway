@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "TipoContrato": {
+      "null": "",
+      "PLANILLA": "PLANILLA",
+      "RECIBO": "RECIBO"
+    }
+  }
+}

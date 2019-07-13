@@ -1,0 +1,112 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-servicio-heading" jhiTranslate="gatewayApp.comercialServicio.home.createOrEditLabel">Create or edit a Servicio</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.fechaEntrega" for="field_fechaEntrega">Fecha Entrega</label>
+                    <div class="input-group">
+                        <input id="field_fechaEntrega" type="text" class="form-control" name="fechaEntrega" ngbDatepicker  #fechaEntregaDp="ngbDatepicker" formControlName="fechaEntrega"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaEntregaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.nombreSolicitante" for="field_nombreSolicitante">Nombre Solicitante</label>
+                    <input type="text" class="form-control" name="nombreSolicitante" id="field_nombreSolicitante"
+                           formControlName="nombreSolicitante"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.numeroSolicitante" for="field_numeroSolicitante">Numero Solicitante</label>
+                    <input type="text" class="form-control" name="numeroSolicitante" id="field_numeroSolicitante"
+                           formControlName="numeroSolicitante"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.observacion" for="field_observacion">Observacion</label>
+                    <textarea class="form-control" name="observacion" id="field_observacion"
+                              formControlName="observacion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.descripcion" for="field_descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="field_descripcion"
+                              formControlName="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="REGISTRADO">{{'gatewayApp.EstadoServicio.REGISTRADO' | translate}}</option>
+                        <option value="COTIZADO">{{'gatewayApp.EstadoServicio.COTIZADO' | translate}}</option>
+                        <option value="APROBADO">{{'gatewayApp.EstadoServicio.APROBADO' | translate}}</option>
+                        <option value="NOAPROBADO">{{'gatewayApp.EstadoServicio.NOAPROBADO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.codigoCliente" for="field_codigoCliente">Codigo Cliente</label>
+                    <input type="text" class="form-control" name="codigoCliente" id="field_codigoCliente"
+                           formControlName="codigoCliente"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.codigoSede" for="field_codigoSede">Codigo Sede</label>
+                    <input type="text" class="form-control" name="codigoSede" id="field_codigoSede"
+                           formControlName="codigoSede"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.tipoServicios" for="field_tipoServicios">Tipo Servicios</label>
+                    <select class="form-control" id="field_tipoServicios" name="tipoServicios" formControlName="tipoServicios">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoServiciosOption.id === editForm.get('tipoServicios').value?.id ? editForm.get('tipoServicios').value : tipoServiciosOption" *ngFor="let tipoServiciosOption of tiposervicios; trackBy: trackTipoServiciosById">{{tipoServiciosOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.tipoSolicitud" for="field_tipoSolicitud">Tipo Solicitud</label>
+                    <select class="form-control" id="field_tipoSolicitud" name="tipoSolicitud" formControlName="tipoSolicitud">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoSolicitudOption.id === editForm.get('tipoSolicitud').value?.id ? editForm.get('tipoSolicitud').value : tipoSolicitudOption" *ngFor="let tipoSolicitudOption of tiposolicituds; trackBy: trackTipoSolicitudById">{{tipoSolicitudOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.tipoInduccion" for="field_tipoInduccion">Tipo Induccion</label>
+                    <select class="form-control" id="field_tipoInduccion" name="tipoInduccion" formControlName="tipoInduccion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoInduccionOption.id === editForm.get('tipoInduccion').value?.id ? editForm.get('tipoInduccion').value : tipoInduccionOption" *ngFor="let tipoInduccionOption of tipoinduccions; trackBy: trackTipoInduccionById">{{tipoInduccionOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.requisitosSeguridad" for="field_requisitosSeguridad">Requisitos Seguridad</label>
+                    <select class="form-control" id="field_requisitosSeguridad" name="requisitosSeguridad" formControlName="requisitosSeguridad">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="requisitosSeguridadOption.id === editForm.get('requisitosSeguridad').value?.id ? editForm.get('requisitosSeguridad').value : requisitosSeguridadOption" *ngFor="let requisitosSeguridadOption of requisitosseguridads; trackBy: trackRequisitosSeguridadById">{{requisitosSeguridadOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.comercialServicio.sede" for="field_sede">Sede</label>
+                    <select class="form-control" id="field_sede" name="sede" formControlName="sede">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="sedeOption.id === editForm.get('sede').value?.id ? editForm.get('sede').value : sedeOption" *ngFor="let sedeOption of sedes; trackBy: trackSedeById">{{sedeOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "monitoreoComponente": {
+      "home": {
+        "title": "Componentes",
+        "createLabel": "Create a new Componente",
+        "createOrEditLabel": "Create or edit a Componente",
+        "notFound": "No Componente found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Componente {{ id }}?"
+      },
+      "detail": {
+        "title": "Componente"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "protocolo": "Protocolo",
+      "guia": "Guia",
+      "iso": "Iso",
+      "objetivos": "Objetivos",
+      "tipoComponente": "Tipo Componente",
+      "observacion": "Observacion"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoComponente": {
+      "created": "A new Componente is created with identifier {{ param }}",
+      "updated": "A Componente is updated with identifier {{ param }}",
+      "deleted": "A Componente is deleted with identifier {{ param }}"
+    }
+  }
+}

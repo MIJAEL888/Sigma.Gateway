@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoComponente">
+            <h2><span jhiTranslate="gatewayApp.monitoreoTipoComponente.detail.title">Tipo Componente</span> {{tipoComponente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoTipoComponente.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoComponente.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoTipoComponente.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoComponente.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoTipoComponente.componente">Componente</span></dt>
+                <dd>
+                    <div *ngIf="tipoComponente.componente">
+                        <a [routerLink]="['/componente', tipoComponente.componente?.id, 'view']">{{tipoComponente.componente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-componente', tipoComponente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoInduccion">
+            <h2><span jhiTranslate="gatewayApp.comercialTipoInduccion.detail.title">Tipo Induccion</span> {{tipoInduccion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialTipoInduccion.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoInduccion.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialTipoInduccion.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoInduccion.descripcion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-induccion', tipoInduccion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

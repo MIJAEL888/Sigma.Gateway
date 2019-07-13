@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-equipo-monitoreo-heading" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.home.createOrEditLabel">Create or edit a Equipo Monitoreo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.codigoEquipo" for="field_codigoEquipo">Codigo Equipo</label>
+                    <input type="text" class="form-control" name="codigoEquipo" id="field_codigoEquipo"
+                           formControlName="codigoEquipo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.reservadoDesde" for="field_reservadoDesde">Reservado Desde</label>
+                    <div class="input-group">
+                        <input id="field_reservadoDesde" type="text" class="form-control" name="reservadoDesde" ngbDatepicker  #reservadoDesdeDp="ngbDatepicker" formControlName="reservadoDesde"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="reservadoDesdeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.reservadoHasta" for="field_reservadoHasta">Reservado Hasta</label>
+                    <div class="input-group">
+                        <input id="field_reservadoHasta" type="text" class="form-control" name="reservadoHasta" ngbDatepicker  #reservadoHastaDp="ngbDatepicker" formControlName="reservadoHasta"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="reservadoHastaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.documentoCalibracion" for="field_documentoCalibracion">Documento Calibracion</label>
+                    <input type="text" class="form-control" name="documentoCalibracion" id="field_documentoCalibracion"
+                           formControlName="documentoCalibracion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoEquipoMonitoreo.proyecto" for="field_proyecto">Proyecto</label>
+                    <select class="form-control" id="field_proyecto" name="proyecto" formControlName="proyecto">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="proyectoOption.id === editForm.get('proyecto').value?.id ? editForm.get('proyecto').value : proyectoOption" *ngFor="let proyectoOption of proyectos; trackBy: trackProyectoById">{{proyectoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

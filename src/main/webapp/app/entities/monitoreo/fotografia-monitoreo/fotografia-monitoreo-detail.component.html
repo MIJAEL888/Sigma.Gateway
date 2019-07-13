@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fotografiaMonitoreo">
+            <h2><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.detail.title">Fotografia Monitoreo</span> {{fotografiaMonitoreo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{fotografiaMonitoreo.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.ruta">Ruta</span></dt>
+                <dd>
+                    <span>{{fotografiaMonitoreo.ruta}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.extension">Extension</span></dt>
+                <dd>
+                    <span>{{fotografiaMonitoreo.extension}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.fotografia">Fotografia</span></dt>
+                <dd>
+                    <div *ngIf="fotografiaMonitoreo.fotografia">
+                        <a (click)="openFile(fotografiaMonitoreo.fotografiaContentType, fotografiaMonitoreo.fotografia)">
+                            <img [src]="'data:' + fotografiaMonitoreo.fotografiaContentType + ';base64,' + fotografiaMonitoreo.fotografia" style="max-width: 100%;" alt="fotografiaMonitoreo image"/>
+                        </a>
+                        {{fotografiaMonitoreo.fotografiaContentType}}, {{byteSize(fotografiaMonitoreo.fotografia)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaMonitoreo.puntoMonitoreoObs">Punto Monitoreo Obs</span></dt>
+                <dd>
+                    <div *ngIf="fotografiaMonitoreo.puntoMonitoreoObs">
+                        <a [routerLink]="['/punto-monitoreo-obs', fotografiaMonitoreo.puntoMonitoreoObs?.id, 'view']">{{fotografiaMonitoreo.puntoMonitoreoObs?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fotografia-monitoreo', fotografiaMonitoreo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resultado">
+            <h2><span jhiTranslate="gatewayApp.monitoreoResultado.detail.title">Resultado</span> {{resultado.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.fechaInicio">Fecha Inicio</span></dt>
+                <dd>
+                    <span>{{resultado.fechaInicio}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.fehcaFin">Fehca Fin</span></dt>
+                <dd>
+                    <span>{{resultado.fehcaFin}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.valorMinimo">Valor Minimo</span></dt>
+                <dd>
+                    <span>{{resultado.valorMinimo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.valorMaximo">Valor Maximo</span></dt>
+                <dd>
+                    <span>{{resultado.valorMaximo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.valorFinal">Valor Final</span></dt>
+                <dd>
+                    <span>{{resultado.valorFinal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.valorFinalNum">Valor Final Num</span></dt>
+                <dd>
+                    <span>{{resultado.valorFinalNum}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.codigoLaboratorio">Codigo Laboratorio</span></dt>
+                <dd>
+                    <span>{{resultado.codigoLaboratorio}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultado.codigoEquipo">Codigo Equipo</span></dt>
+                <dd>
+                    <span>{{resultado.codigoEquipo}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resultado', resultado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "monitoreoFotografiaMonitoreo": {
+      "home": {
+        "title": "Fotografia Monitoreos",
+        "createLabel": "Create a new Fotografia Monitoreo",
+        "createOrEditLabel": "Create or edit a Fotografia Monitoreo",
+        "notFound": "No Fotografia Monitoreo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Fotografia Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Fotografia Monitoreo"
+      },
+      "nombre": "Nombre",
+      "ruta": "Ruta",
+      "extension": "Extension",
+      "fotografia": "Fotografia",
+      "puntoMonitoreoObs": "Punto Monitoreo Obs"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoFotografiaMonitoreo": {
+      "created": "A new Fotografia Monitoreo is created with identifier {{ param }}",
+      "updated": "A Fotografia Monitoreo is updated with identifier {{ param }}",
+      "deleted": "A Fotografia Monitoreo is deleted with identifier {{ param }}"
+    }
+  }
+}

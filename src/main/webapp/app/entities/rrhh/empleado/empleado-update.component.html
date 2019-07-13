@@ -1,0 +1,156 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-empleado-heading" jhiTranslate="gatewayApp.rrhhEmpleado.home.createOrEditLabel">Create or edit a Empleado</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.apellidoPaterno" for="field_apellidoPaterno">Apellido Paterno</label>
+                    <input type="text" class="form-control" name="apellidoPaterno" id="field_apellidoPaterno"
+                           formControlName="apellidoPaterno"/>
+                    <div *ngIf="editForm.get('apellidoPaterno').invalid && (editForm.get('apellidoPaterno').dirty || editForm.get('apellidoPaterno').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidoPaterno').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.apellidoMaterno" for="field_apellidoMaterno">Apellido Materno</label>
+                    <input type="text" class="form-control" name="apellidoMaterno" id="field_apellidoMaterno"
+                           formControlName="apellidoMaterno"/>
+                    <div *ngIf="editForm.get('apellidoMaterno').invalid && (editForm.get('apellidoMaterno').dirty || editForm.get('apellidoMaterno').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('apellidoMaterno').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.tipoDocumento" for="field_tipoDocumento">Tipo Documento</label>
+                    <select class="form-control" name="tipoDocumento" formControlName="tipoDocumento" id="field_tipoDocumento">
+                        <option value="DNI">{{'gatewayApp.TipoDocumento.DNI' | translate}}</option>
+                        <option value="PASSAPORTE">{{'gatewayApp.TipoDocumento.PASSAPORTE' | translate}}</option>
+                        <option value="RUC">{{'gatewayApp.TipoDocumento.RUC' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.numeroDocumento" for="field_numeroDocumento">Numero Documento</label>
+                    <input type="text" class="form-control" name="numeroDocumento" id="field_numeroDocumento"
+                           formControlName="numeroDocumento"/>
+                    <div *ngIf="editForm.get('numeroDocumento').invalid && (editForm.get('numeroDocumento').dirty || editForm.get('numeroDocumento').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('numeroDocumento').errors.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.fechaNacimiento" for="field_fechaNacimiento">Fecha Nacimiento</label>
+                    <div class="input-group">
+                        <input id="field_fechaNacimiento" type="text" class="form-control" name="fechaNacimiento" ngbDatepicker  #fechaNacimientoDp="ngbDatepicker" formControlName="fechaNacimiento"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaNacimientoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.fechaIngreso" for="field_fechaIngreso">Fecha Ingreso</label>
+                    <div class="input-group">
+                        <input id="field_fechaIngreso" type="text" class="form-control" name="fechaIngreso" ngbDatepicker  #fechaIngresoDp="ngbDatepicker" formControlName="fechaIngreso"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaIngresoDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.tipoContrato" for="field_tipoContrato">Tipo Contrato</label>
+                    <select class="form-control" name="tipoContrato" formControlName="tipoContrato" id="field_tipoContrato">
+                        <option value="PLANILLA">{{'gatewayApp.TipoContrato.PLANILLA' | translate}}</option>
+                        <option value="RECIBO">{{'gatewayApp.TipoContrato.RECIBO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.tipoAportacion" for="field_tipoAportacion">Tipo Aportacion</label>
+                    <select class="form-control" name="tipoAportacion" formControlName="tipoAportacion" id="field_tipoAportacion">
+                        <option value="SNP">{{'gatewayApp.TipoPension.SNP' | translate}}</option>
+                        <option value="SPP">{{'gatewayApp.TipoPension.SPP' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="ACTIVO">{{'gatewayApp.EstadoEmpleado.ACTIVO' | translate}}</option>
+                        <option value="CESE">{{'gatewayApp.EstadoEmpleado.CESE' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.fechaCreacion" for="field_fechaCreacion">Fecha Creacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaCreacion" type="text" class="form-control" name="fechaCreacion" ngbDatepicker  #fechaCreacionDp="ngbDatepicker" formControlName="fechaCreacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaCreacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.fechaActualizacion" for="field_fechaActualizacion">Fecha Actualizacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaActualizacion" type="text" class="form-control" name="fechaActualizacion" ngbDatepicker  #fechaActualizacionDp="ngbDatepicker" formControlName="fechaActualizacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaActualizacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.direccion" for="field_direccion">Direccion</label>
+                    <input type="text" class="form-control" name="direccion" id="field_direccion"
+                           formControlName="direccion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.estadoCivil" for="field_estadoCivil">Estado Civil</label>
+                    <select class="form-control" name="estadoCivil" formControlName="estadoCivil" id="field_estadoCivil">
+                        <option value="SOLTERO">{{'gatewayApp.EstadoCivil.SOLTERO' | translate}}</option>
+                        <option value="CONVIVIENTE">{{'gatewayApp.EstadoCivil.CONVIVIENTE' | translate}}</option>
+                        <option value="CASADO">{{'gatewayApp.EstadoCivil.CASADO' | translate}}</option>
+                        <option value="DIVORCIADO">{{'gatewayApp.EstadoCivil.DIVORCIADO' | translate}}</option>
+                        <option value="VIUDO">{{'gatewayApp.EstadoCivil.VIUDO' | translate}}</option>
+                        <option value="OTROS">{{'gatewayApp.EstadoCivil.OTROS' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.rrhhEmpleado.posicion" for="field_posicion">Posicion</label>
+                    <select class="form-control" id="field_posicion" name="posicion" formControlName="posicion">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="posicionOption.id === editForm.get('posicion').value?.id ? editForm.get('posicion').value : posicionOption" *ngFor="let posicionOption of posicions; trackBy: trackPosicionById">{{posicionOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

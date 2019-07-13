@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="observacion">
+            <h2><span jhiTranslate="gatewayApp.monitoreoObservacion.detail.title">Observacion</span> {{observacion.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoObservacion.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{observacion.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoObservacion.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{observacion.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoObservacion.codigoMonitorista">Codigo Monitorista</span></dt>
+                <dd>
+                    <span>{{observacion.codigoMonitorista}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoObservacion.proyecto">Proyecto</span></dt>
+                <dd>
+                    <div *ngIf="observacion.proyecto">
+                        <a [routerLink]="['/proyecto', observacion.proyecto?.id, 'view']">{{observacion.proyecto?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoObservacion.componente">Componente</span></dt>
+                <dd>
+                    <div *ngIf="observacion.componente">
+                        <a [routerLink]="['/componente', observacion.componente?.id, 'view']">{{observacion.componente?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/observacion', observacion.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

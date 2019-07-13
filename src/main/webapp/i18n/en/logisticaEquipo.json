@@ -1,0 +1,38 @@
+{
+  "gatewayApp": {
+    "logisticaEquipo": {
+      "home": {
+        "title": "Equipos",
+        "createLabel": "Create a new Equipo",
+        "createOrEditLabel": "Create or edit a Equipo",
+        "notFound": "No Equipo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Equipo {{ id }}?"
+      },
+      "detail": {
+        "title": "Equipo"
+      },
+      "codigoEquipo": "Codigo Equipo",
+      "serie": "Serie",
+      "calibradoDesde": "Calibrado Desde",
+      "calibradoHasta": "Calibrado Hasta",
+      "rutaDocCalibracion": "Ruta Doc Calibracion",
+      "nombreDocCalibracion": "Nombre Doc Calibracion",
+      "documentoCalibracion": "Documento Calibracion",
+      "estado": "Estado",
+      "fechaCompra": "Fecha Compra",
+      "observacion": "Observacion",
+      "comentario": "Comentario",
+      "test": "Test",
+      "modelo": "Modelo"
+    }
+  },
+  "logisticaApp": {
+    "logisticaEquipo": {
+      "created": "A new Equipo is created with identifier {{ param }}",
+      "updated": "A Equipo is updated with identifier {{ param }}",
+      "deleted": "A Equipo is deleted with identifier {{ param }}"
+    }
+  }
+}

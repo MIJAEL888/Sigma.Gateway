@@ -1,0 +1,13 @@
+{
+  "gatewayApp": {
+    "EstadoCivil": {
+      "null": "",
+      "SOLTERO": "SOLTERO",
+      "CONVIVIENTE": "CONVIVIENTE",
+      "CASADO": "CASADO",
+      "DIVORCIADO": "DIVORCIADO",
+      "VIUDO": "VIUDO",
+      "OTROS": "OTROS"
+    }
+  }
+}

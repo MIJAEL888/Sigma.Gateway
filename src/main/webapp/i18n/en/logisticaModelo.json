@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "logisticaModelo": {
+      "home": {
+        "title": "Modelos",
+        "createLabel": "Create a new Modelo",
+        "createOrEditLabel": "Create or edit a Modelo",
+        "notFound": "No Modelo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Modelo {{ id }}?"
+      },
+      "detail": {
+        "title": "Modelo"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "equipo": "Equipo",
+      "tipoEuipo": "Tipo Euipo",
+      "marca": "Marca"
+    }
+  },
+  "logisticaApp": {
+    "logisticaModelo": {
+      "created": "A new Modelo is created with identifier {{ param }}",
+      "updated": "A Modelo is updated with identifier {{ param }}",
+      "deleted": "A Modelo is deleted with identifier {{ param }}"
+    }
+  }
+}

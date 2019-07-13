@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "comercialTipoInduccion": {
+      "home": {
+        "title": "Tipo Induccions",
+        "createLabel": "Crear nuevo Tipo Induccion",
+        "createOrEditLabel": "Crear o editar Tipo Induccion",
+        "notFound": "No Tipo Induccion found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Induccion {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Induccion"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "sevicio": "Sevicio"
+    }
+  },
+  "comercialApp": {
+    "comercialTipoInduccion": {
+      "created": "Un nuevo Tipo Induccion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Induccion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Induccion ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

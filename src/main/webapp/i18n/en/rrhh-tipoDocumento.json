@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "TipoDocumento": {
+      "null": "",
+      "DNI": "DNI",
+      "PASSAPORTE": "PASSAPORTE",
+      "RUC": "RUC"
+    }
+  }
+}

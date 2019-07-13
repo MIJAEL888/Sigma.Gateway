@@ -1,0 +1,32 @@
+{
+  "gatewayApp": {
+    "logisticaMonitorista": {
+      "home": {
+        "title": "Monitoristas",
+        "createLabel": "Crear nuevo Monitorista",
+        "createOrEditLabel": "Crear o editar Monitorista",
+        "notFound": "No Monitorista found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Monitorista {{ id }}?"
+      },
+      "detail": {
+        "title": "Monitorista"
+      },
+      "nombre": "Nombre",
+      "apellidoPaterno": "Apellido Paterno",
+      "apellidoMaterno": "Apellido Materno",
+      "dni": "Dni",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "laboratorio": "Laboratorio",
+      "tipoSeguro": "Tipo Seguro"
+    }
+  },
+  "logisticaApp": {
+    "logisticaMonitorista": {
+      "created": "Un nuevo Monitorista ha sido creado con el identificador {{ param }}",
+      "updated": "Un Monitorista ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Monitorista ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="distrito">
+            <h2><span jhiTranslate="gatewayApp.comercialDistrito.detail.title">Distrito</span> {{distrito.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialDistrito.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{distrito.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialDistrito.ubigeo">Ubigeo</span></dt>
+                <dd>
+                    <span>{{distrito.ubigeo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialDistrito.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{distrito.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialDistrito.provincia">Provincia</span></dt>
+                <dd>
+                    <div *ngIf="distrito.provincia">
+                        <a [routerLink]="['/provincia', distrito.provincia?.id, 'view']">{{distrito.provincia?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/distrito', distrito.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

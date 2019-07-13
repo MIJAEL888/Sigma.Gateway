@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-resultado-emisiones-heading" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.home.createOrEditLabel">Create or edit a Resultado Emisiones</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.tipoEquipo" for="field_tipoEquipo">Tipo Equipo</label>
+                    <input type="text" class="form-control" name="tipoEquipo" id="field_tipoEquipo"
+                           formControlName="tipoEquipo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.combustible" for="field_combustible">Combustible</label>
+                    <input type="text" class="form-control" name="combustible" id="field_combustible"
+                           formControlName="combustible"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.consumo" for="field_consumo">Consumo</label>
+                    <input type="number" class="form-control" name="consumo" id="field_consumo"
+                           formControlName="consumo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.horaPorMes" for="field_horaPorMes">Hora Por Mes</label>
+                    <input type="number" class="form-control" name="horaPorMes" id="field_horaPorMes"
+                           formControlName="horaPorMes"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.altura" for="field_altura">Altura</label>
+                    <input type="number" class="form-control" name="altura" id="field_altura"
+                           formControlName="altura"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.diametro" for="field_diametro">Diametro</label>
+                    <input type="number" class="form-control" name="diametro" id="field_diametro"
+                           formControlName="diametro"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.seccion" for="field_seccion">Seccion</label>
+                    <input type="text" class="form-control" name="seccion" id="field_seccion"
+                           formControlName="seccion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.resultado" for="field_resultado">Resultado</label>
+                    <select class="form-control" id="field_resultado" name="resultado" formControlName="resultado">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="resultadoOption.id === editForm.get('resultado').value?.id ? editForm.get('resultado').value : resultadoOption" *ngFor="let resultadoOption of resultados; trackBy: trackResultadoById">{{resultadoOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

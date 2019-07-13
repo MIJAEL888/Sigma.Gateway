@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="monitorista">
+            <h2><span jhiTranslate="gatewayApp.logisticaMonitorista.detail.title">Monitorista</span> {{monitorista.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{monitorista.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.apellidoPaterno">Apellido Paterno</span></dt>
+                <dd>
+                    <span>{{monitorista.apellidoPaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.apellidoMaterno">Apellido Materno</span></dt>
+                <dd>
+                    <span>{{monitorista.apellidoMaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.dni">Dni</span></dt>
+                <dd>
+                    <span>{{monitorista.dni}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{monitorista.fechaNacimiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.laboratorio">Laboratorio</span></dt>
+                <dd>
+                    <div *ngIf="monitorista.laboratorio">
+                        <a [routerLink]="['/laboratorio', monitorista.laboratorio?.id, 'view']">{{monitorista.laboratorio?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaMonitorista.tipoSeguro">Tipo Seguro</span></dt>
+                <dd>
+                    <span *ngFor="let tipoSeguro of monitorista.tipoSeguros; let last = last">
+                        <a [routerLink]="['/tipo-seguro', tipoSeguro?.id, 'view' ]">{{tipoSeguro.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/monitorista', monitorista.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

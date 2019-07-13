@@ -1,0 +1,40 @@
+{
+  "gatewayApp": {
+    "comercialSede": {
+      "home": {
+        "title": "Sedes",
+        "createLabel": "Create a new Sede",
+        "createOrEditLabel": "Create or edit a Sede",
+        "notFound": "No Sede found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Sede {{ id }}?"
+      },
+      "detail": {
+        "title": "Sede"
+      },
+      "direccion": "Direccion",
+      "referencia": "Referencia",
+      "latitud": "Latitud",
+      "longitud": "Longitud",
+      "actividad": "Actividad",
+      "telefono": "Telefono",
+      "descripcion": "Descripcion",
+      "comentario": "Comentario",
+      "rutaDocEstudio": "Ruta Doc Estudio",
+      "nombreDocEstudio": "Nombre Doc Estudio",
+      "documentoEstudio": "Documento Estudio",
+      "contactoSede": "Contacto Sede",
+      "servicio": "Servicio",
+      "cliente": "Cliente",
+      "distrito": "Distrito"
+    }
+  },
+  "comercialApp": {
+    "comercialSede": {
+      "created": "A new Sede is created with identifier {{ param }}",
+      "updated": "A Sede is updated with identifier {{ param }}",
+      "deleted": "A Sede is deleted with identifier {{ param }}"
+    }
+  }
+}

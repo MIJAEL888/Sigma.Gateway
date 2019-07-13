@@ -1,0 +1,40 @@
+{
+  "gatewayApp": {
+    "rrhhEmpleado": {
+      "home": {
+        "title": "Empleados",
+        "createLabel": "Create a new Empleado",
+        "createOrEditLabel": "Create or edit a Empleado",
+        "notFound": "No Empleado found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Empleado {{ id }}?"
+      },
+      "detail": {
+        "title": "Empleado"
+      },
+      "nombre": "Nombre",
+      "apellidoPaterno": "Apellido Paterno",
+      "apellidoMaterno": "Apellido Materno",
+      "tipoDocumento": "Tipo Documento",
+      "numeroDocumento": "Numero Documento",
+      "fechaNacimiento": "Fecha Nacimiento",
+      "fechaIngreso": "Fecha Ingreso",
+      "tipoContrato": "Tipo Contrato",
+      "tipoAportacion": "Tipo Aportacion",
+      "estado": "Estado",
+      "fechaCreacion": "Fecha Creacion",
+      "fechaActualizacion": "Fecha Actualizacion",
+      "direccion": "Direccion",
+      "estadoCivil": "Estado Civil",
+      "posicion": "Posicion"
+    }
+  },
+  "rrhhApp": {
+    "rrhhEmpleado": {
+      "created": "A new Empleado is created with identifier {{ param }}",
+      "updated": "A Empleado is updated with identifier {{ param }}",
+      "deleted": "A Empleado is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.home.title">Resultado Emisiones</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resultado-emisiones" [routerLink]="['/resultado-emisiones/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.home.createLabel">
+            Create new Resultado Emisiones
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="resultadoEmisiones?.length === 0">
+        <span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.home.notFound">No resultadoEmisiones found</span>
+    </div>
+    <div class="table-responsive" *ngIf="resultadoEmisiones?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.tipoEquipo">Tipo Equipo</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.combustible">Combustible</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.consumo">Consumo</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.horaPorMes">Hora Por Mes</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.altura">Altura</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.diametro">Diametro</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.seccion">Seccion</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.resultado">Resultado</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resultadoEmisiones of resultadoEmisiones ;trackBy: trackId">
+                <td><a [routerLink]="['/resultado-emisiones', resultadoEmisiones.id, 'view' ]">{{resultadoEmisiones.id}}</a></td>
+                <td>{{resultadoEmisiones.tipoEquipo}}</td>
+                <td>{{resultadoEmisiones.combustible}}</td>
+                <td>{{resultadoEmisiones.consumo}}</td>
+                <td>{{resultadoEmisiones.horaPorMes}}</td>
+                <td>{{resultadoEmisiones.altura}}</td>
+                <td>{{resultadoEmisiones.diametro}}</td>
+                <td>{{resultadoEmisiones.seccion}}</td>
+                <td>
+                    <div *ngIf="resultadoEmisiones.resultado">
+                        <a [routerLink]="['../resultado', resultadoEmisiones.resultado?.id, 'view' ]" >{{resultadoEmisiones.resultado?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/resultado-emisiones', resultadoEmisiones.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/resultado-emisiones', resultadoEmisiones.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'resultado-emisiones', { outlets: { popup: resultadoEmisiones.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

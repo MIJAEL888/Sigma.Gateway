@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "monitoreoTipoComponente": {
+      "home": {
+        "title": "Tipo Componentes",
+        "createLabel": "Create a new Tipo Componente",
+        "createOrEditLabel": "Create or edit a Tipo Componente",
+        "notFound": "No Tipo Componente found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Componente {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Componente"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "componente": "Componente",
+      "paramentro": "Paramentro"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoTipoComponente": {
+      "created": "A new Tipo Componente is created with identifier {{ param }}",
+      "updated": "A Tipo Componente is updated with identifier {{ param }}",
+      "deleted": "A Tipo Componente is deleted with identifier {{ param }}"
+    }
+  }
+}

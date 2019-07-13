@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "monitoreoLaboratorioMonitoreo": {
+      "home": {
+        "title": "Laboratorio Monitoreos",
+        "createLabel": "Create a new Laboratorio Monitoreo",
+        "createOrEditLabel": "Create or edit a Laboratorio Monitoreo",
+        "notFound": "No Laboratorio Monitoreo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Laboratorio Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Laboratorio Monitoreo"
+      },
+      "codigoLaboratorio": "Codigo Laboratorio",
+      "fechaReseva": "Fecha Reseva",
+      "proyecto": "Proyecto"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoLaboratorioMonitoreo": {
+      "created": "A new Laboratorio Monitoreo is created with identifier {{ param }}",
+      "updated": "A Laboratorio Monitoreo is updated with identifier {{ param }}",
+      "deleted": "A Laboratorio Monitoreo is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "monitoreoEquipoMonitoreo": {
+      "home": {
+        "title": "Equipo Monitoreos",
+        "createLabel": "Crear nuevo Equipo Monitoreo",
+        "createOrEditLabel": "Crear o editar Equipo Monitoreo",
+        "notFound": "No Equipo Monitoreo found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Equipo Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Equipo Monitoreo"
+      },
+      "codigoEquipo": "Codigo Equipo",
+      "reservadoDesde": "Reservado Desde",
+      "reservadoHasta": "Reservado Hasta",
+      "documentoCalibracion": "Documento Calibracion",
+      "proyecto": "Proyecto"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoEquipoMonitoreo": {
+      "created": "Un nuevo Equipo Monitoreo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Equipo Monitoreo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Equipo Monitoreo ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "gatewayApp": {
+    "monitoreoParamentro": {
+      "home": {
+        "title": "Paramentros",
+        "createLabel": "Create a new Paramentro",
+        "createOrEditLabel": "Create or edit a Paramentro",
+        "notFound": "No Paramentro found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Paramentro {{ id }}?"
+      },
+      "detail": {
+        "title": "Paramentro"
+      },
+      "nombre": "Nombre",
+      "siglas": "Siglas",
+      "descripcion": "Descripcion",
+      "costo": "Costo",
+      "metodologia": "Metodologia",
+      "metodoEnsayo": "Metodo Ensayo",
+      "limiteCuantificacion": "Limite Cuantificacion",
+      "tipoComponente": "Tipo Componente",
+      "normaCalidad": "Norma Calidad",
+      "puntoMonitoreo": "Punto Monitoreo",
+      "unidades": "Unidades"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoParamentro": {
+      "created": "A new Paramentro is created with identifier {{ param }}",
+      "updated": "A Paramentro is updated with identifier {{ param }}",
+      "deleted": "A Paramentro is deleted with identifier {{ param }}"
+    }
+  }
+}

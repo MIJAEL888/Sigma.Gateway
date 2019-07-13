@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "comercialContactoSede": {
+      "home": {
+        "title": "Contacto Sedes",
+        "createLabel": "Create a new Contacto Sede",
+        "createOrEditLabel": "Create or edit a Contacto Sede",
+        "notFound": "No Contacto Sede found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Contacto Sede {{ id }}?"
+      },
+      "detail": {
+        "title": "Contacto Sede"
+      },
+      "nombre": "Nombre",
+      "telefono": "Telefono",
+      "correo": "Correo",
+      "posicion": "Posicion",
+      "sede": "Sede"
+    }
+  },
+  "comercialApp": {
+    "comercialContactoSede": {
+      "created": "A new Contacto Sede is created with identifier {{ param }}",
+      "updated": "A Contacto Sede is updated with identifier {{ param }}",
+      "deleted": "A Contacto Sede is deleted with identifier {{ param }}"
+    }
+  }
+}

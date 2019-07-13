@@ -1,0 +1,97 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.rrhhEmpleado.home.title">Empleados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-empleado" [routerLink]="['/empleado/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.rrhhEmpleado.home.createLabel">
+            Create new Empleado
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="empleados?.length === 0">
+        <span jhiTranslate="gatewayApp.rrhhEmpleado.home.notFound">No empleados found</span>
+    </div>
+    <div class="table-responsive" *ngIf="empleados?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="gatewayApp.rrhhEmpleado.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellidoPaterno"><span jhiTranslate="gatewayApp.rrhhEmpleado.apellidoPaterno">Apellido Paterno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="apellidoMaterno"><span jhiTranslate="gatewayApp.rrhhEmpleado.apellidoMaterno">Apellido Materno</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoDocumento"><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoDocumento">Tipo Documento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="numeroDocumento"><span jhiTranslate="gatewayApp.rrhhEmpleado.numeroDocumento">Numero Documento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaNacimiento"><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaNacimiento">Fecha Nacimiento</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaIngreso"><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaIngreso">Fecha Ingreso</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoContrato"><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoContrato">Tipo Contrato</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="tipoAportacion"><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoAportacion">Tipo Aportacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estado"><span jhiTranslate="gatewayApp.rrhhEmpleado.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaCreacion"><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaCreacion">Fecha Creacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaActualizacion"><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaActualizacion">Fecha Actualizacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="gatewayApp.rrhhEmpleado.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="estadoCivil"><span jhiTranslate="gatewayApp.rrhhEmpleado.estadoCivil">Estado Civil</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="posicion.id"><span jhiTranslate="gatewayApp.rrhhEmpleado.posicion">Posicion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let empleado of empleados ;trackBy: trackId">
+                <td><a [routerLink]="['/empleado', empleado.id, 'view' ]">{{empleado.id}}</a></td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.apellidoPaterno}}</td>
+                <td>{{empleado.apellidoMaterno}}</td>
+                <td jhiTranslate="{{'gatewayApp.TipoDocumento.' + empleado.tipoDocumento}}">{{empleado.tipoDocumento}}</td>
+                <td>{{empleado.numeroDocumento}}</td>
+                <td>{{empleado.fechaNacimiento | date:'mediumDate'}}</td>
+                <td>{{empleado.fechaIngreso | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'gatewayApp.TipoContrato.' + empleado.tipoContrato}}">{{empleado.tipoContrato}}</td>
+                <td jhiTranslate="{{'gatewayApp.TipoPension.' + empleado.tipoAportacion}}">{{empleado.tipoAportacion}}</td>
+                <td jhiTranslate="{{'gatewayApp.EstadoEmpleado.' + empleado.estado}}">{{empleado.estado}}</td>
+                <td>{{empleado.fechaCreacion | date:'mediumDate'}}</td>
+                <td>{{empleado.fechaActualizacion | date:'mediumDate'}}</td>
+                <td>{{empleado.direccion}}</td>
+                <td jhiTranslate="{{'gatewayApp.EstadoCivil.' + empleado.estadoCivil}}">{{empleado.estadoCivil}}</td>
+                <td>
+                    <div *ngIf="empleado.posicion">
+                        <a [routerLink]="['../posicion', empleado.posicion?.id, 'view' ]" >{{empleado.posicion?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/empleado', empleado.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/empleado', empleado.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'empleado', { outlets: { popup: empleado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="empleados?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

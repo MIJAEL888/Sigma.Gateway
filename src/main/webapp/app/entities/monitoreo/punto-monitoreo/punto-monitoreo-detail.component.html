@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="puntoMonitoreo">
+            <h2><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.detail.title">Punto Monitoreo</span> {{puntoMonitoreo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.codigoSede">Codigo Sede</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.codigoSede}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.codigoCliente">Codigo Cliente</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.codigoCliente}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.coordenadaNorte">Coordenada Norte</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.coordenadaNorte}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.coordenadaEste">Coordenada Este</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.coordenadaEste}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.latitud">Latitud</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.latitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.longitud">Longitud</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.longitud}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoPuntoMonitoreo.observacion">Observacion</span></dt>
+                <dd>
+                    <span>{{puntoMonitoreo.observacion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/punto-monitoreo', puntoMonitoreo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

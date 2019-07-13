@@ -1,0 +1,11 @@
+{
+  "gatewayApp": {
+    "EstadoProyecto": {
+      "null": "",
+      "REGISTRADO": "REGISTRADO",
+      "PLANIFICADO": "PLANIFICADO",
+      "MONITOREADO": "MONITOREADO",
+      "FINALIZADO": "FINALIZADO"
+    }
+  }
+}

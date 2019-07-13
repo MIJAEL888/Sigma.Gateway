@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "comercialParamentroMonitoreo": {
+      "home": {
+        "title": "Paramentro Monitoreos",
+        "createLabel": "Create a new Paramentro Monitoreo",
+        "createOrEditLabel": "Create or edit a Paramentro Monitoreo",
+        "notFound": "No Paramentro Monitoreo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Paramentro Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Paramentro Monitoreo"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "costo": "Costo",
+      "componenteMonitoreo": "Componente Monitoreo",
+      "monitoreoServicio": "Monitoreo Servicio"
+    }
+  },
+  "comercialApp": {
+    "comercialParamentroMonitoreo": {
+      "created": "A new Paramentro Monitoreo is created with identifier {{ param }}",
+      "updated": "A Paramentro Monitoreo is updated with identifier {{ param }}",
+      "deleted": "A Paramentro Monitoreo is deleted with identifier {{ param }}"
+    }
+  }
+}

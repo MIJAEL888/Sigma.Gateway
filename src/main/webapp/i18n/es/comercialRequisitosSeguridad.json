@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "comercialRequisitosSeguridad": {
+      "home": {
+        "title": "Requisitos Seguridads",
+        "createLabel": "Crear nuevo Requisitos Seguridad",
+        "createOrEditLabel": "Crear o editar Requisitos Seguridad",
+        "notFound": "No Requisitos Seguridad found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Requisitos Seguridad {{ id }}?"
+      },
+      "detail": {
+        "title": "Requisitos Seguridad"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "sevicio": "Sevicio"
+    }
+  },
+  "comercialApp": {
+    "comercialRequisitosSeguridad": {
+      "created": "Un nuevo Requisitos Seguridad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Requisitos Seguridad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Requisitos Seguridad ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

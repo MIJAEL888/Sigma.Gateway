@@ -1,0 +1,76 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-proyecto-heading" jhiTranslate="gatewayApp.monitoreoProyecto.home.createOrEditLabel">Create or edit a Proyecto</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.codigoSolicitud" for="field_codigoSolicitud">Codigo Solicitud</label>
+                    <input type="text" class="form-control" name="codigoSolicitud" id="field_codigoSolicitud"
+                           formControlName="codigoSolicitud"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.codigoResponsable" for="field_codigoResponsable">Codigo Responsable</label>
+                    <input type="text" class="form-control" name="codigoResponsable" id="field_codigoResponsable"
+                           formControlName="codigoResponsable"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="REGISTRADO">{{'gatewayApp.EstadoProyecto.REGISTRADO' | translate}}</option>
+                        <option value="PLANIFICADO">{{'gatewayApp.EstadoProyecto.PLANIFICADO' | translate}}</option>
+                        <option value="MONITOREADO">{{'gatewayApp.EstadoProyecto.MONITOREADO' | translate}}</option>
+                        <option value="FINALIZADO">{{'gatewayApp.EstadoProyecto.FINALIZADO' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.fechaIncio" for="field_fechaIncio">Fecha Incio</label>
+                    <div class="input-group">
+                        <input id="field_fechaIncio" type="text" class="form-control" name="fechaIncio" ngbDatepicker  #fechaIncioDp="ngbDatepicker" formControlName="fechaIncio"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaIncioDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.fechaFina" for="field_fechaFina">Fecha Fina</label>
+                    <div class="input-group">
+                        <input id="field_fechaFina" type="text" class="form-control" name="fechaFina" ngbDatepicker  #fechaFinaDp="ngbDatepicker" formControlName="fechaFina"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaFinaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.descripcion" for="field_descripcion">Descripcion</label>
+                    <textarea class="form-control" name="descripcion" id="field_descripcion"
+                              formControlName="descripcion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoProyecto.comentario" for="field_comentario">Comentario</label>
+                    <textarea class="form-control" name="comentario" id="field_comentario"
+                              formControlName="comentario"></textarea>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

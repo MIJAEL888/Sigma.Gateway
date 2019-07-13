@@ -1,0 +1,57 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="resultadoEmisiones">
+            <h2><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.detail.title">Resultado Emisiones</span> {{resultadoEmisiones.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.tipoEquipo">Tipo Equipo</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.tipoEquipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.combustible">Combustible</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.combustible}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.consumo">Consumo</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.consumo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.horaPorMes">Hora Por Mes</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.horaPorMes}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.altura">Altura</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.altura}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.diametro">Diametro</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.diametro}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.seccion">Seccion</span></dt>
+                <dd>
+                    <span>{{resultadoEmisiones.seccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoResultadoEmisiones.resultado">Resultado</span></dt>
+                <dd>
+                    <div *ngIf="resultadoEmisiones.resultado">
+                        <a [routerLink]="['/resultado', resultadoEmisiones.resultado?.id, 'view']">{{resultadoEmisiones.resultado?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/resultado-emisiones', resultadoEmisiones.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

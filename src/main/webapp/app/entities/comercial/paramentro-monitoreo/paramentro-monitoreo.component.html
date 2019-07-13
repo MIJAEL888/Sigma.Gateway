@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.home.title">Paramentro Monitoreos</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-paramentro-monitoreo" [routerLink]="['/paramentro-monitoreo/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.comercialParamentroMonitoreo.home.createLabel">
+            Create new Paramentro Monitoreo
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="paramentroMonitoreos?.length === 0">
+        <span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.home.notFound">No paramentroMonitoreos found</span>
+    </div>
+    <div class="table-responsive" *ngIf="paramentroMonitoreos?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombre"><span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.nombre">Nombre</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="costo"><span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.costo">Costo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="componenteMonitoreo.id"><span jhiTranslate="gatewayApp.comercialParamentroMonitoreo.componenteMonitoreo">Componente Monitoreo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let paramentroMonitoreo of paramentroMonitoreos ;trackBy: trackId">
+                <td><a [routerLink]="['/paramentro-monitoreo', paramentroMonitoreo.id, 'view' ]">{{paramentroMonitoreo.id}}</a></td>
+                <td>{{paramentroMonitoreo.nombre}}</td>
+                <td>{{paramentroMonitoreo.descripcion}}</td>
+                <td>{{paramentroMonitoreo.costo}}</td>
+                <td>
+                    <div *ngIf="paramentroMonitoreo.componenteMonitoreo">
+                        <a [routerLink]="['../componente-monitoreo', paramentroMonitoreo.componenteMonitoreo?.id, 'view' ]" >{{paramentroMonitoreo.componenteMonitoreo?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/paramentro-monitoreo', paramentroMonitoreo.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/paramentro-monitoreo', paramentroMonitoreo.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'paramentro-monitoreo', { outlets: { popup: paramentroMonitoreo.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="paramentroMonitoreos?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

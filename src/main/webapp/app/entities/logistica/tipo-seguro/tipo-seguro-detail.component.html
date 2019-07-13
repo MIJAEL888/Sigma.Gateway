@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoSeguro">
+            <h2><span jhiTranslate="gatewayApp.logisticaTipoSeguro.detail.title">Tipo Seguro</span> {{tipoSeguro.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoSeguro.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoSeguro.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoSeguro.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoSeguro.descripcion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoSeguro.fechaCaudicidad">Fecha Caudicidad</span></dt>
+                <dd>
+                    <span>{{tipoSeguro.fechaCaudicidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoSeguro.codigoTipoSeguro">Codigo Tipo Seguro</span></dt>
+                <dd>
+                    <span>{{tipoSeguro.codigoTipoSeguro}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-seguro', tipoSeguro.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

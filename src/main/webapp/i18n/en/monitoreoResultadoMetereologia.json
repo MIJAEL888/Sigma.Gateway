@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "monitoreoResultadoMetereologia": {
+      "home": {
+        "title": "Resultado Metereologias",
+        "createLabel": "Create a new Resultado Metereologia",
+        "createOrEditLabel": "Create or edit a Resultado Metereologia",
+        "notFound": "No Resultado Metereologia found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Resultado Metereologia {{ id }}?"
+      },
+      "detail": {
+        "title": "Resultado Metereologia"
+      },
+      "fecha": "Fecha",
+      "valor": "Valor",
+      "valorDecimal": "Valor Decimal",
+      "resultado": "Resultado"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoResultadoMetereologia": {
+      "created": "A new Resultado Metereologia is created with identifier {{ param }}",
+      "updated": "A Resultado Metereologia is updated with identifier {{ param }}",
+      "deleted": "A Resultado Metereologia is deleted with identifier {{ param }}"
+    }
+  }
+}

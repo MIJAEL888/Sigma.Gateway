@@ -1,0 +1,40 @@
+{
+  "gatewayApp": {
+    "comercialServicio": {
+      "home": {
+        "title": "Servicios",
+        "createLabel": "Create a new Servicio",
+        "createOrEditLabel": "Create or edit a Servicio",
+        "notFound": "No Servicio found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Servicio {{ id }}?"
+      },
+      "detail": {
+        "title": "Servicio"
+      },
+      "codigo": "Codigo",
+      "fechaEntrega": "Fecha Entrega",
+      "nombreSolicitante": "Nombre Solicitante",
+      "numeroSolicitante": "Numero Solicitante",
+      "observacion": "Observacion",
+      "descripcion": "Descripcion",
+      "estado": "Estado",
+      "codigoCliente": "Codigo Cliente",
+      "codigoSede": "Codigo Sede",
+      "monitoreoServicio": "Monitoreo Servicio",
+      "tipoServicios": "Tipo Servicios",
+      "tipoSolicitud": "Tipo Solicitud",
+      "tipoInduccion": "Tipo Induccion",
+      "requisitosSeguridad": "Requisitos Seguridad",
+      "sede": "Sede"
+    }
+  },
+  "comercialApp": {
+    "comercialServicio": {
+      "created": "A new Servicio is created with identifier {{ param }}",
+      "updated": "A Servicio is updated with identifier {{ param }}",
+      "deleted": "A Servicio is deleted with identifier {{ param }}"
+    }
+  }
+}

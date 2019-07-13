@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="componenteMonitoreo">
+            <h2><span jhiTranslate="gatewayApp.comercialComponenteMonitoreo.detail.title">Componente Monitoreo</span> {{componenteMonitoreo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialComponenteMonitoreo.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{componenteMonitoreo.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialComponenteMonitoreo.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{componenteMonitoreo.descripcion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/componente-monitoreo', componenteMonitoreo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

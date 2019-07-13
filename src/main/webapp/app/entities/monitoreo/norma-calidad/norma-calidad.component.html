@@ -1,0 +1,74 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.monitoreoNormaCalidad.home.title">Norma Calidads</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-norma-calidad" [routerLink]="['/norma-calidad/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.monitoreoNormaCalidad.home.createLabel">
+            Create new Norma Calidad
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="normaCalidads?.length === 0">
+        <span jhiTranslate="gatewayApp.monitoreoNormaCalidad.home.notFound">No normaCalidads found</span>
+    </div>
+    <div class="table-responsive" *ngIf="normaCalidads?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombre">Nombre</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.codigo">Codigo</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.fechaPublicacion">Fecha Publicacion</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.tipo">Tipo</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.fuente">Fuente</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.rutaDocNorma">Ruta Doc Norma</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombreDocNorma">Nombre Doc Norma</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.documentoNorma">Documento Norma</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let normaCalidad of normaCalidads ;trackBy: trackId">
+                <td><a [routerLink]="['/norma-calidad', normaCalidad.id, 'view' ]">{{normaCalidad.id}}</a></td>
+                <td>{{normaCalidad.nombre}}</td>
+                <td>{{normaCalidad.codigo}}</td>
+                <td>{{normaCalidad.fechaPublicacion | date:'mediumDate'}}</td>
+                <td jhiTranslate="{{'gatewayApp.TipoNorma.' + normaCalidad.tipo}}">{{normaCalidad.tipo}}</td>
+                <td>{{normaCalidad.fuente}}</td>
+                <td>{{normaCalidad.rutaDocNorma}}</td>
+                <td>{{normaCalidad.nombreDocNorma}}</td>
+                <td>
+                    <a *ngIf="normaCalidad.documentoNorma" (click)="openFile(normaCalidad.documentoNormaContentType, normaCalidad.documentoNorma)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="normaCalidad.documentoNorma">{{normaCalidad.documentoNormaContentType}}, {{byteSize(normaCalidad.documentoNorma)}}</span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/norma-calidad', normaCalidad.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/norma-calidad', normaCalidad.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'norma-calidad', { outlets: { popup: normaCalidad.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

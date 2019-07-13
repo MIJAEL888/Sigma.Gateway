@@ -1,0 +1,100 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.comercialSede.home.title">Sedes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-sede" [routerLink]="['/sede/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.comercialSede.home.createLabel">
+            Create new Sede
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="sedes?.length === 0">
+        <span jhiTranslate="gatewayApp.comercialSede.home.notFound">No sedes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="sedes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="direccion"><span jhiTranslate="gatewayApp.comercialSede.direccion">Direccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="referencia"><span jhiTranslate="gatewayApp.comercialSede.referencia">Referencia</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="latitud"><span jhiTranslate="gatewayApp.comercialSede.latitud">Latitud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="longitud"><span jhiTranslate="gatewayApp.comercialSede.longitud">Longitud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="actividad"><span jhiTranslate="gatewayApp.comercialSede.actividad">Actividad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="telefono"><span jhiTranslate="gatewayApp.comercialSede.telefono">Telefono</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="descripcion"><span jhiTranslate="gatewayApp.comercialSede.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="comentario"><span jhiTranslate="gatewayApp.comercialSede.comentario">Comentario</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="rutaDocEstudio"><span jhiTranslate="gatewayApp.comercialSede.rutaDocEstudio">Ruta Doc Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="nombreDocEstudio"><span jhiTranslate="gatewayApp.comercialSede.nombreDocEstudio">Nombre Doc Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="documentoEstudio"><span jhiTranslate="gatewayApp.comercialSede.documentoEstudio">Documento Estudio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="cliente.id"><span jhiTranslate="gatewayApp.comercialSede.cliente">Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="distrito.id"><span jhiTranslate="gatewayApp.comercialSede.distrito">Distrito</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let sede of sedes ;trackBy: trackId">
+                <td><a [routerLink]="['/sede', sede.id, 'view' ]">{{sede.id}}</a></td>
+                <td>{{sede.direccion}}</td>
+                <td>{{sede.referencia}}</td>
+                <td>{{sede.latitud}}</td>
+                <td>{{sede.longitud}}</td>
+                <td>{{sede.actividad}}</td>
+                <td>{{sede.telefono}}</td>
+                <td>{{sede.descripcion}}</td>
+                <td>{{sede.comentario}}</td>
+                <td>{{sede.rutaDocEstudio}}</td>
+                <td>{{sede.nombreDocEstudio}}</td>
+                <td>
+                    <a *ngIf="sede.documentoEstudio" (click)="openFile(sede.documentoEstudioContentType, sede.documentoEstudio)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="sede.documentoEstudio">{{sede.documentoEstudioContentType}}, {{byteSize(sede.documentoEstudio)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="sede.cliente">
+                        <a [routerLink]="['../cliente', sede.cliente?.id, 'view' ]" >{{sede.cliente?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="sede.distrito">
+                        <a [routerLink]="['../distrito', sede.distrito?.id, 'view' ]" >{{sede.distrito?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/sede', sede.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/sede', sede.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'sede', { outlets: { popup: sede.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="sedes?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

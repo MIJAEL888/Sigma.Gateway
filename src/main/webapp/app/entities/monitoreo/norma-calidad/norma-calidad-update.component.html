@@ -1,0 +1,89 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-norma-calidad-heading" jhiTranslate="gatewayApp.monitoreoNormaCalidad.home.createOrEditLabel">Create or edit a Norma Calidad</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.codigo" for="field_codigo">Codigo</label>
+                    <input type="text" class="form-control" name="codigo" id="field_codigo"
+                           formControlName="codigo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.fechaPublicacion" for="field_fechaPublicacion">Fecha Publicacion</label>
+                    <div class="input-group">
+                        <input id="field_fechaPublicacion" type="text" class="form-control" name="fechaPublicacion" ngbDatepicker  #fechaPublicacionDp="ngbDatepicker" formControlName="fechaPublicacion"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaPublicacionDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.tipo" for="field_tipo">Tipo</label>
+                    <select class="form-control" name="tipo" formControlName="tipo" id="field_tipo">
+                        <option value="NACIONAL">{{'gatewayApp.TipoNorma.NACIONAL' | translate}}</option>
+                        <option value="INTERNACIONAL">{{'gatewayApp.TipoNorma.INTERNACIONAL' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.fuente" for="field_fuente">Fuente</label>
+                    <input type="text" class="form-control" name="fuente" id="field_fuente"
+                           formControlName="fuente"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.rutaDocNorma" for="field_rutaDocNorma">Ruta Doc Norma</label>
+                    <input type="text" class="form-control" name="rutaDocNorma" id="field_rutaDocNorma"
+                           formControlName="rutaDocNorma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombreDocNorma" for="field_nombreDocNorma">Nombre Doc Norma</label>
+                    <input type="text" class="form-control" name="nombreDocNorma" id="field_nombreDocNorma"
+                           formControlName="nombreDocNorma"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoNormaCalidad.documentoNorma" for="field_documentoNorma">Documento Norma</label>
+                    <div>
+                        <div *ngIf="editForm.get('documentoNorma').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('documentoNormaContentType').value, editForm.get('documentoNorma').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('documentoNormaContentType').value}}, {{byteSize(editForm.get('documentoNorma').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({documentoNorma: null});editForm.patchValue({documentoNormaContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_documentoNorma" (change)="setFileData($event, 'documentoNorma', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="documentoNorma" id="field_documentoNorma"
+                           formControlName="documentoNorma"/>
+                    <input type="hidden" class="form-control" name="documentoNormaContentType" id="field_documentoNormaContentType"
+                           formControlName="documentoNormaContentType" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

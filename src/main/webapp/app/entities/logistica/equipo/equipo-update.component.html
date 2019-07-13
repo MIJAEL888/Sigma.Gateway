@@ -1,0 +1,144 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-equipo-heading" jhiTranslate="gatewayApp.logisticaEquipo.home.createOrEditLabel">Create or edit a Equipo</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.codigoEquipo" for="field_codigoEquipo">Codigo Equipo</label>
+                    <input type="text" class="form-control" name="codigoEquipo" id="field_codigoEquipo"
+                           formControlName="codigoEquipo"/>
+                    <div *ngIf="editForm.get('codigoEquipo').invalid && (editForm.get('codigoEquipo').dirty || editForm.get('codigoEquipo').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('codigoEquipo').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.serie" for="field_serie">Serie</label>
+                    <input type="text" class="form-control" name="serie" id="field_serie"
+                           formControlName="serie"/>
+                    <div *ngIf="editForm.get('serie').invalid && (editForm.get('serie').dirty || editForm.get('serie').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serie').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.calibradoDesde" for="field_calibradoDesde">Calibrado Desde</label>
+                    <div class="input-group">
+                        <input id="field_calibradoDesde" type="text" class="form-control" name="calibradoDesde" ngbDatepicker  #calibradoDesdeDp="ngbDatepicker" formControlName="calibradoDesde"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="calibradoDesdeDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.calibradoHasta" for="field_calibradoHasta">Calibrado Hasta</label>
+                    <div class="input-group">
+                        <input id="field_calibradoHasta" type="text" class="form-control" name="calibradoHasta" ngbDatepicker  #calibradoHastaDp="ngbDatepicker" formControlName="calibradoHasta"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="calibradoHastaDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.rutaDocCalibracion" for="field_rutaDocCalibracion">Ruta Doc Calibracion</label>
+                    <input type="text" class="form-control" name="rutaDocCalibracion" id="field_rutaDocCalibracion"
+                           formControlName="rutaDocCalibracion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.nombreDocCalibracion" for="field_nombreDocCalibracion">Nombre Doc Calibracion</label>
+                    <input type="text" class="form-control" name="nombreDocCalibracion" id="field_nombreDocCalibracion"
+                           formControlName="nombreDocCalibracion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.documentoCalibracion" for="field_documentoCalibracion">Documento Calibracion</label>
+                    <div>
+                        <div *ngIf="editForm.get('documentoCalibracion').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('documentoCalibracionContentType').value, editForm.get('documentoCalibracion').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('documentoCalibracionContentType').value}}, {{byteSize(editForm.get('documentoCalibracion').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({documentoCalibracion: null});editForm.patchValue({documentoCalibracionContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_documentoCalibracion" (change)="setFileData($event, 'documentoCalibracion', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="documentoCalibracion" id="field_documentoCalibracion"
+                           formControlName="documentoCalibracion"/>
+                    <input type="hidden" class="form-control" name="documentoCalibracionContentType" id="field_documentoCalibracionContentType"
+                           formControlName="documentoCalibracionContentType" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.estado" for="field_estado">Estado</label>
+                    <select class="form-control" name="estado" formControlName="estado" id="field_estado">
+                        <option value="CALIBRADO">{{'gatewayApp.EstadoEquipo.CALIBRADO' | translate}}</option>
+                        <option value="MANTENIMIENTO">{{'gatewayApp.EstadoEquipo.MANTENIMIENTO' | translate}}</option>
+                        <option value="BAJA">{{'gatewayApp.EstadoEquipo.BAJA' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.fechaCompra" for="field_fechaCompra">Fecha Compra</label>
+                    <div class="input-group">
+                        <input id="field_fechaCompra" type="text" class="form-control" name="fechaCompra" ngbDatepicker  #fechaCompraDp="ngbDatepicker" formControlName="fechaCompra"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fechaCompraDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.observacion" for="field_observacion">Observacion</label>
+                    <textarea class="form-control" name="observacion" id="field_observacion"
+                              formControlName="observacion"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.comentario" for="field_comentario">Comentario</label>
+                    <textarea class="form-control" name="comentario" id="field_comentario"
+                              formControlName="comentario"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.test" for="field_test">Test</label>
+                    <div>
+                        <div *ngIf="editForm.get('test').value" class="form-text text-danger clearfix">
+                            <a class="pull-left" (click)="openFile(editForm.get('testContentType').value, editForm.get('test').value)" jhiTranslate="entity.action.open">open</a><br>
+                            <span class="pull-left">{{editForm.get('testContentType').value}}, {{byteSize(editForm.get('test').value)}}</span>
+                            <button type="button" (click)="editForm.patchValue({test: null});editForm.patchValue({testContentType: null});"
+                                    class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_test" (change)="setFileData($event, 'test', false)" jhiTranslate="entity.action.addblob"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="test" id="field_test"
+                           formControlName="test"/>
+                    <input type="hidden" class="form-control" name="testContentType" id="field_testContentType"
+                           formControlName="testContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.logisticaEquipo.modelo" for="field_modelo">Modelo</label>
+                    <select class="form-control" id="field_modelo" name="modelo" formControlName="modelo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="modeloOption.id === editForm.get('modelo').value?.id ? editForm.get('modelo').value : modeloOption" *ngFor="let modeloOption of modelos; trackBy: trackModeloById">{{modeloOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

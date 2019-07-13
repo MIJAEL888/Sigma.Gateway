@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="normaCalidad">
+            <h2><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.detail.title">Norma Calidad</span> {{normaCalidad.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{normaCalidad.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{normaCalidad.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.fechaPublicacion">Fecha Publicacion</span></dt>
+                <dd>
+                    <span>{{normaCalidad.fechaPublicacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.tipo">Tipo</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.TipoNorma.' + normaCalidad.tipo}}">{{normaCalidad.tipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.fuente">Fuente</span></dt>
+                <dd>
+                    <span>{{normaCalidad.fuente}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.rutaDocNorma">Ruta Doc Norma</span></dt>
+                <dd>
+                    <span>{{normaCalidad.rutaDocNorma}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.nombreDocNorma">Nombre Doc Norma</span></dt>
+                <dd>
+                    <span>{{normaCalidad.nombreDocNorma}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoNormaCalidad.documentoNorma">Documento Norma</span></dt>
+                <dd>
+                    <div *ngIf="normaCalidad.documentoNorma">
+                        <a (click)="openFile(normaCalidad.documentoNormaContentType, normaCalidad.documentoNorma)" jhiTranslate="entity.action.open">open</a>
+                        {{normaCalidad.documentoNormaContentType}}, {{byteSize(normaCalidad.documentoNorma)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/norma-calidad', normaCalidad.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

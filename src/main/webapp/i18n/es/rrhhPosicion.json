@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "rrhhPosicion": {
+      "home": {
+        "title": "Posicions",
+        "createLabel": "Crear nuevo Posicion",
+        "createOrEditLabel": "Crear o editar Posicion",
+        "notFound": "No Posicion found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Posicion {{ id }}?"
+      },
+      "detail": {
+        "title": "Posicion"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "funciones": "Funciones",
+      "empleado": "Empleado",
+      "area": "Area"
+    }
+  },
+  "rrhhApp": {
+    "rrhhPosicion": {
+      "created": "Un nuevo Posicion ha sido creado con el identificador {{ param }}",
+      "updated": "Un Posicion ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Posicion ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

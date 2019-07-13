@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "comercialDistrito": {
+      "home": {
+        "title": "Distritos",
+        "createLabel": "Crear nuevo Distrito",
+        "createOrEditLabel": "Crear o editar Distrito",
+        "notFound": "No Distrito found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Distrito {{ id }}?"
+      },
+      "detail": {
+        "title": "Distrito"
+      },
+      "nombre": "Nombre",
+      "ubigeo": "Ubigeo",
+      "descripcion": "Descripcion",
+      "sede": "Sede",
+      "provincia": "Provincia"
+    }
+  },
+  "comercialApp": {
+    "comercialDistrito": {
+      "created": "Un nuevo Distrito ha sido creado con el identificador {{ param }}",
+      "updated": "Un Distrito ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Distrito ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

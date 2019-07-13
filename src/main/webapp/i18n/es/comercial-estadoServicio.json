@@ -1,0 +1,11 @@
+{
+  "gatewayApp": {
+    "EstadoServicio": {
+      "null": "",
+      "REGISTRADO": "REGISTRADO",
+      "COTIZADO": "COTIZADO",
+      "APROBADO": "APROBADO",
+      "NOAPROBADO": "NOAPROBADO"
+    }
+  }
+}

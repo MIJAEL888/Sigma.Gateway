@@ -1,0 +1,34 @@
+{
+  "gatewayApp": {
+    "monitoreoNormaCalidad": {
+      "home": {
+        "title": "Norma Calidads",
+        "createLabel": "Crear nuevo Norma Calidad",
+        "createOrEditLabel": "Crear o editar Norma Calidad",
+        "notFound": "No Norma Calidad found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Norma Calidad {{ id }}?"
+      },
+      "detail": {
+        "title": "Norma Calidad"
+      },
+      "nombre": "Nombre",
+      "codigo": "Codigo",
+      "fechaPublicacion": "Fecha Publicacion",
+      "tipo": "Tipo",
+      "fuente": "Fuente",
+      "rutaDocNorma": "Ruta Doc Norma",
+      "nombreDocNorma": "Nombre Doc Norma",
+      "documentoNorma": "Documento Norma",
+      "paramentro": "Paramentro"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoNormaCalidad": {
+      "created": "Un nuevo Norma Calidad ha sido creado con el identificador {{ param }}",
+      "updated": "Un Norma Calidad ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Norma Calidad ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

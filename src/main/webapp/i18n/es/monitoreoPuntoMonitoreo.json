@@ -1,0 +1,38 @@
+{
+  "gatewayApp": {
+    "monitoreoPuntoMonitoreo": {
+      "home": {
+        "title": "Punto Monitoreos",
+        "createLabel": "Crear nuevo Punto Monitoreo",
+        "createOrEditLabel": "Crear o editar Punto Monitoreo",
+        "notFound": "No Punto Monitoreo found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Punto Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Punto Monitoreo"
+      },
+      "codigo": "Codigo",
+      "codigoSede": "Codigo Sede",
+      "codigoCliente": "Codigo Cliente",
+      "coordenadaNorte": "Coordenada Norte",
+      "coordenadaEste": "Coordenada Este",
+      "descripcion": "Descripcion",
+      "comentario": "Comentario",
+      "latitud": "Latitud",
+      "longitud": "Longitud",
+      "observacion": "Observacion",
+      "puntoMonitoreoObs": "Punto Monitoreo Obs",
+      "paramentro": "Paramentro",
+      "fotografiaPunto": "Fotografia Punto"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoPuntoMonitoreo": {
+      "created": "Un nuevo Punto Monitoreo ha sido creado con el identificador {{ param }}",
+      "updated": "Un Punto Monitoreo ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Punto Monitoreo ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

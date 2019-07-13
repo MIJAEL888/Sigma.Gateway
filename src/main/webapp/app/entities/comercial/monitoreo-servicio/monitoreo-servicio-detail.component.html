@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="monitoreoServicio">
+            <h2><span jhiTranslate="gatewayApp.comercialMonitoreoServicio.detail.title">Monitoreo Servicio</span> {{monitoreoServicio.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.comercialMonitoreoServicio.cantidad">Cantidad</span></dt>
+                <dd>
+                    <span>{{monitoreoServicio.cantidad}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialMonitoreoServicio.costoTotal">Costo Total</span></dt>
+                <dd>
+                    <span>{{monitoreoServicio.costoTotal}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialMonitoreoServicio.servicio">Servicio</span></dt>
+                <dd>
+                    <div *ngIf="monitoreoServicio.servicio">
+                        <a [routerLink]="['/servicio', monitoreoServicio.servicio?.id, 'view']">{{monitoreoServicio.servicio?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.comercialMonitoreoServicio.paramentroMonitoreo">Paramentro Monitoreo</span></dt>
+                <dd>
+                    <div *ngIf="monitoreoServicio.paramentroMonitoreo">
+                        <a [routerLink]="['/paramentro-monitoreo', monitoreoServicio.paramentroMonitoreo?.id, 'view']">{{monitoreoServicio.paramentroMonitoreo?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/monitoreo-servicio', monitoreoServicio.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tipoEquipo">
+            <h2><span jhiTranslate="gatewayApp.logisticaTipoEquipo.detail.title">Tipo Equipo</span> {{tipoEquipo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoEquipo.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{tipoEquipo.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoEquipo.codigo">Codigo</span></dt>
+                <dd>
+                    <span>{{tipoEquipo.codigo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaTipoEquipo.descripcion">Descripcion</span></dt>
+                <dd>
+                    <span>{{tipoEquipo.descripcion}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tipo-equipo', tipoEquipo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

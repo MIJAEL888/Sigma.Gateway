@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "TipoNorma": {
+      "null": "",
+      "NACIONAL": "NACIONAL",
+      "INTERNACIONAL": "INTERNACIONAL"
+    }
+  }
+}

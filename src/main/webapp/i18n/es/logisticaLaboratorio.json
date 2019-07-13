@@ -1,0 +1,40 @@
+{
+  "gatewayApp": {
+    "logisticaLaboratorio": {
+      "home": {
+        "title": "Laboratorios",
+        "createLabel": "Crear nuevo Laboratorio",
+        "createOrEditLabel": "Crear o editar Laboratorio",
+        "notFound": "No Laboratorio found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Laboratorio {{ id }}?"
+      },
+      "detail": {
+        "title": "Laboratorio"
+      },
+      "razonSocial": "Razon Social",
+      "direccion": "Direccion",
+      "ruc": "Ruc",
+      "acreditadoPor": "Acreditado Por",
+      "numeroAcreditacion": "Numero Acreditacion",
+      "rutaDocAcreditacion": "Ruta Doc Acreditacion",
+      "nombreDocAcreditacion": "Nombre Doc Acreditacion",
+      "documentoAcreditacion": "Documento Acreditacion",
+      "vigenciaDesde": "Vigencia Desde",
+      "vigenciaHasta": "Vigencia Hasta",
+      "telefono": "Telefono",
+      "correo": "Correo",
+      "nombreContacto": "Nombre Contacto",
+      "fechaCreacion": "Fecha Creacion",
+      "laboratorio": "Laboratorio"
+    }
+  },
+  "logisticaApp": {
+    "logisticaLaboratorio": {
+      "created": "Un nuevo Laboratorio ha sido creado con el identificador {{ param }}",
+      "updated": "Un Laboratorio ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Laboratorio ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "comercialTipoSolicitud": {
+      "home": {
+        "title": "Tipo Solicituds",
+        "createLabel": "Create a new Tipo Solicitud",
+        "createOrEditLabel": "Create or edit a Tipo Solicitud",
+        "notFound": "No Tipo Solicitud found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Solicitud {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Solicitud"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "sevicio": "Sevicio"
+    }
+  },
+  "comercialApp": {
+    "comercialTipoSolicitud": {
+      "created": "A new Tipo Solicitud is created with identifier {{ param }}",
+      "updated": "A Tipo Solicitud is updated with identifier {{ param }}",
+      "deleted": "A Tipo Solicitud is deleted with identifier {{ param }}"
+    }
+  }
+}

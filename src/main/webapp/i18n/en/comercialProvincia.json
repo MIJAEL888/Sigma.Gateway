@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "comercialProvincia": {
+      "home": {
+        "title": "Provincias",
+        "createLabel": "Create a new Provincia",
+        "createOrEditLabel": "Create or edit a Provincia",
+        "notFound": "No Provincia found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Provincia {{ id }}?"
+      },
+      "detail": {
+        "title": "Provincia"
+      },
+      "nombre": "Nombre",
+      "ubigeo": "Ubigeo",
+      "descripcion": "Descripcion",
+      "distrito": "Distrito",
+      "departamento": "Departamento"
+    }
+  },
+  "comercialApp": {
+    "comercialProvincia": {
+      "created": "A new Provincia is created with identifier {{ param }}",
+      "updated": "A Provincia is updated with identifier {{ param }}",
+      "deleted": "A Provincia is deleted with identifier {{ param }}"
+    }
+  }
+}

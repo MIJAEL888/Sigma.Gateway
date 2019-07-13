@@ -1,0 +1,37 @@
+{
+  "gatewayApp": {
+    "monitoreoProyecto": {
+      "home": {
+        "title": "Proyectos",
+        "createLabel": "Create a new Proyecto",
+        "createOrEditLabel": "Create or edit a Proyecto",
+        "notFound": "No Proyecto found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Proyecto {{ id }}?"
+      },
+      "detail": {
+        "title": "Proyecto"
+      },
+      "codigo": "Codigo",
+      "codigoSolicitud": "Codigo Solicitud",
+      "codigoResponsable": "Codigo Responsable",
+      "estado": "Estado",
+      "fechaIncio": "Fecha Incio",
+      "fechaFina": "Fecha Fina",
+      "descripcion": "Descripcion",
+      "comentario": "Comentario",
+      "puntoMonitoreo": "Punto Monitoreo",
+      "equipo": "Equipo",
+      "observacion": "Observacion",
+      "laboratorio": "Laboratorio"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoProyecto": {
+      "created": "A new Proyecto is created with identifier {{ param }}",
+      "updated": "A Proyecto is updated with identifier {{ param }}",
+      "deleted": "A Proyecto is deleted with identifier {{ param }}"
+    }
+  }
+}

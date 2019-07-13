@@ -1,0 +1,50 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fotografiaPunto">
+            <h2><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.detail.title">Fotografia Punto</span> {{fotografiaPunto.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{fotografiaPunto.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.ruta">Ruta</span></dt>
+                <dd>
+                    <span>{{fotografiaPunto.ruta}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.extension">Extension</span></dt>
+                <dd>
+                    <span>{{fotografiaPunto.extension}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.fotografia">Fotografia</span></dt>
+                <dd>
+                    <div *ngIf="fotografiaPunto.fotografia">
+                        <a (click)="openFile(fotografiaPunto.fotografiaContentType, fotografiaPunto.fotografia)">
+                            <img [src]="'data:' + fotografiaPunto.fotografiaContentType + ';base64,' + fotografiaPunto.fotografia" style="max-width: 100%;" alt="fotografiaPunto image"/>
+                        </a>
+                        {{fotografiaPunto.fotografiaContentType}}, {{byteSize(fotografiaPunto.fotografia)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoFotografiaPunto.puntoMonitoreo">Punto Monitoreo</span></dt>
+                <dd>
+                    <div *ngIf="fotografiaPunto.puntoMonitoreo">
+                        <a [routerLink]="['/punto-monitoreo', fotografiaPunto.puntoMonitoreo?.id, 'view']">{{fotografiaPunto.puntoMonitoreo?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fotografia-punto', fotografiaPunto.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

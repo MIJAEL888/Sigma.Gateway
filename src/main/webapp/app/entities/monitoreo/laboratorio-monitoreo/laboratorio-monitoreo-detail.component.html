@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="laboratorioMonitoreo">
+            <h2><span jhiTranslate="gatewayApp.monitoreoLaboratorioMonitoreo.detail.title">Laboratorio Monitoreo</span> {{laboratorioMonitoreo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.monitoreoLaboratorioMonitoreo.codigoLaboratorio">Codigo Laboratorio</span></dt>
+                <dd>
+                    <span>{{laboratorioMonitoreo.codigoLaboratorio}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoLaboratorioMonitoreo.fechaReseva">Fecha Reseva</span></dt>
+                <dd>
+                    <span>{{laboratorioMonitoreo.fechaReseva}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.monitoreoLaboratorioMonitoreo.proyecto">Proyecto</span></dt>
+                <dd>
+                    <div *ngIf="laboratorioMonitoreo.proyecto">
+                        <a [routerLink]="['/proyecto', laboratorioMonitoreo.proyecto?.id, 'view']">{{laboratorioMonitoreo.proyecto?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/laboratorio-monitoreo', laboratorioMonitoreo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

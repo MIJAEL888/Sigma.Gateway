@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.comercialContactoSede.home.title">Contacto Sedes</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-contacto-sede" [routerLink]="['/contacto-sede/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.comercialContactoSede.home.createLabel">
+            Create new Contacto Sede
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="contactoSedes?.length === 0">
+        <span jhiTranslate="gatewayApp.comercialContactoSede.home.notFound">No contactoSedes found</span>
+    </div>
+    <div class="table-responsive" *ngIf="contactoSedes?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialContactoSede.nombre">Nombre</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialContactoSede.telefono">Telefono</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialContactoSede.correo">Correo</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialContactoSede.posicion">Posicion</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialContactoSede.sede">Sede</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let contactoSede of contactoSedes ;trackBy: trackId">
+                <td><a [routerLink]="['/contacto-sede', contactoSede.id, 'view' ]">{{contactoSede.id}}</a></td>
+                <td>{{contactoSede.nombre}}</td>
+                <td>{{contactoSede.telefono}}</td>
+                <td>{{contactoSede.correo}}</td>
+                <td>{{contactoSede.posicion}}</td>
+                <td>
+                    <div *ngIf="contactoSede.sede">
+                        <a [routerLink]="['../sede', contactoSede.sede?.id, 'view' ]" >{{contactoSede.sede?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/contacto-sede', contactoSede.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/contacto-sede', contactoSede.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'contacto-sede', { outlets: { popup: contactoSede.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

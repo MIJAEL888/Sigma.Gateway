@@ -1,0 +1,10 @@
+{
+  "gatewayApp": {
+    "EstadoEquipo": {
+      "null": "",
+      "CALIBRADO": "CALIBRADO",
+      "MANTENIMIENTO": "MANTENIMIENTO",
+      "BAJA": "BAJA"
+    }
+  }
+}

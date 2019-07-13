@@ -1,0 +1,33 @@
+{
+  "gatewayApp": {
+    "monitoreoResultadoEmisiones": {
+      "home": {
+        "title": "Resultado Emisiones",
+        "createLabel": "Crear nuevo Resultado Emisiones",
+        "createOrEditLabel": "Crear o editar Resultado Emisiones",
+        "notFound": "No Resultado Emisiones found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Resultado Emisiones {{ id }}?"
+      },
+      "detail": {
+        "title": "Resultado Emisiones"
+      },
+      "tipoEquipo": "Tipo Equipo",
+      "combustible": "Combustible",
+      "consumo": "Consumo",
+      "horaPorMes": "Hora Por Mes",
+      "altura": "Altura",
+      "diametro": "Diametro",
+      "seccion": "Seccion",
+      "resultado": "Resultado"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoResultadoEmisiones": {
+      "created": "Un nuevo Resultado Emisiones ha sido creado con el identificador {{ param }}",
+      "updated": "Un Resultado Emisiones ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Resultado Emisiones ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

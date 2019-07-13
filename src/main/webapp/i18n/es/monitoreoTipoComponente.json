@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "monitoreoTipoComponente": {
+      "home": {
+        "title": "Tipo Componentes",
+        "createLabel": "Crear nuevo Tipo Componente",
+        "createOrEditLabel": "Crear o editar Tipo Componente",
+        "notFound": "No Tipo Componente found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Tipo Componente {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Componente"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "componente": "Componente",
+      "paramentro": "Paramentro"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoTipoComponente": {
+      "created": "Un nuevo Tipo Componente ha sido creado con el identificador {{ param }}",
+      "updated": "Un Tipo Componente ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Tipo Componente ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

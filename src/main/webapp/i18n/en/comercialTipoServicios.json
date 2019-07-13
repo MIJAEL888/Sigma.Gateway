@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "comercialTipoServicios": {
+      "home": {
+        "title": "Tipo Servicios",
+        "createLabel": "Create a new Tipo Servicios",
+        "createOrEditLabel": "Create or edit a Tipo Servicios",
+        "notFound": "No Tipo Servicios found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Tipo Servicios {{ id }}?"
+      },
+      "detail": {
+        "title": "Tipo Servicios"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "sevicio": "Sevicio"
+    }
+  },
+  "comercialApp": {
+    "comercialTipoServicios": {
+      "created": "A new Tipo Servicios is created with identifier {{ param }}",
+      "updated": "A Tipo Servicios is updated with identifier {{ param }}",
+      "deleted": "A Tipo Servicios is deleted with identifier {{ param }}"
+    }
+  }
+}

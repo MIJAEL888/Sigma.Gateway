@@ -1,0 +1,28 @@
+{
+  "gatewayApp": {
+    "comercialComponenteMonitoreo": {
+      "home": {
+        "title": "Componente Monitoreos",
+        "createLabel": "Create a new Componente Monitoreo",
+        "createOrEditLabel": "Create or edit a Componente Monitoreo",
+        "notFound": "No Componente Monitoreo found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Componente Monitoreo {{ id }}?"
+      },
+      "detail": {
+        "title": "Componente Monitoreo"
+      },
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "paramentroMonitoreo": "Paramentro Monitoreo"
+    }
+  },
+  "comercialApp": {
+    "comercialComponenteMonitoreo": {
+      "created": "A new Componente Monitoreo is created with identifier {{ param }}",
+      "updated": "A Componente Monitoreo is updated with identifier {{ param }}",
+      "deleted": "A Componente Monitoreo is deleted with identifier {{ param }}"
+    }
+  }
+}

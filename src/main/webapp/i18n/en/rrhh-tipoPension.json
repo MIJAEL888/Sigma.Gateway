@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "TipoPension": {
+      "null": "",
+      "SNP": "SNP",
+      "SPP": "SPP"
+    }
+  }
+}

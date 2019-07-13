@@ -1,0 +1,36 @@
+{
+  "gatewayApp": {
+    "monitoreoResultado": {
+      "home": {
+        "title": "Resultados",
+        "createLabel": "Crear nuevo Resultado",
+        "createOrEditLabel": "Crear o editar Resultado",
+        "notFound": "No Resultado found"
+      },
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Resultado {{ id }}?"
+      },
+      "detail": {
+        "title": "Resultado"
+      },
+      "fechaInicio": "Fecha Inicio",
+      "fehcaFin": "Fehca Fin",
+      "valorMinimo": "Valor Minimo",
+      "valorMaximo": "Valor Maximo",
+      "valorFinal": "Valor Final",
+      "valorFinalNum": "Valor Final Num",
+      "codigoLaboratorio": "Codigo Laboratorio",
+      "codigoEquipo": "Codigo Equipo",
+      "resultadoEmisiones": "Resultado Emisiones",
+      "resultadoMetereologia": "Resultado Metereologia",
+      "puntoMonitoreoObs": "Punto Monitoreo Obs"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoResultado": {
+      "created": "Un nuevo Resultado ha sido creado con el identificador {{ param }}",
+      "updated": "Un Resultado ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Resultado ha sido eliminado con el identificador {{ param }}"
+    }
+  }
+}

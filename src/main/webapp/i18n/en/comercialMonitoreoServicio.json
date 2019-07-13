@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "comercialMonitoreoServicio": {
+      "home": {
+        "title": "Monitoreo Servicios",
+        "createLabel": "Create a new Monitoreo Servicio",
+        "createOrEditLabel": "Create or edit a Monitoreo Servicio",
+        "notFound": "No Monitoreo Servicio found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Monitoreo Servicio {{ id }}?"
+      },
+      "detail": {
+        "title": "Monitoreo Servicio"
+      },
+      "cantidad": "Cantidad",
+      "costoTotal": "Costo Total",
+      "servicio": "Servicio",
+      "paramentroMonitoreo": "Paramentro Monitoreo"
+    }
+  },
+  "comercialApp": {
+    "comercialMonitoreoServicio": {
+      "created": "A new Monitoreo Servicio is created with identifier {{ param }}",
+      "updated": "A Monitoreo Servicio is updated with identifier {{ param }}",
+      "deleted": "A Monitoreo Servicio is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="equipo">
+            <h2><span jhiTranslate="gatewayApp.logisticaEquipo.detail.title">Equipo</span> {{equipo.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.codigoEquipo">Codigo Equipo</span></dt>
+                <dd>
+                    <span>{{equipo.codigoEquipo}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.serie">Serie</span></dt>
+                <dd>
+                    <span>{{equipo.serie}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.calibradoDesde">Calibrado Desde</span></dt>
+                <dd>
+                    <span>{{equipo.calibradoDesde}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.calibradoHasta">Calibrado Hasta</span></dt>
+                <dd>
+                    <span>{{equipo.calibradoHasta}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.rutaDocCalibracion">Ruta Doc Calibracion</span></dt>
+                <dd>
+                    <span>{{equipo.rutaDocCalibracion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.nombreDocCalibracion">Nombre Doc Calibracion</span></dt>
+                <dd>
+                    <span>{{equipo.nombreDocCalibracion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.documentoCalibracion">Documento Calibracion</span></dt>
+                <dd>
+                    <div *ngIf="equipo.documentoCalibracion">
+                        <a (click)="openFile(equipo.documentoCalibracionContentType, equipo.documentoCalibracion)" jhiTranslate="entity.action.open">open</a>
+                        {{equipo.documentoCalibracionContentType}}, {{byteSize(equipo.documentoCalibracion)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.EstadoEquipo.' + equipo.estado}}">{{equipo.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.fechaCompra">Fecha Compra</span></dt>
+                <dd>
+                    <span>{{equipo.fechaCompra}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.observacion">Observacion</span></dt>
+                <dd>
+                    <span>{{equipo.observacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.comentario">Comentario</span></dt>
+                <dd>
+                    <span>{{equipo.comentario}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.test">Test</span></dt>
+                <dd>
+                    <div *ngIf="equipo.test">
+                        <a (click)="openFile(equipo.testContentType, equipo.test)" jhiTranslate="entity.action.open">open</a>
+                        {{equipo.testContentType}}, {{byteSize(equipo.test)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.logisticaEquipo.modelo">Modelo</span></dt>
+                <dd>
+                    <div *ngIf="equipo.modelo">
+                        <a [routerLink]="['/modelo', equipo.modelo?.id, 'view']">{{equipo.modelo?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/equipo', equipo.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

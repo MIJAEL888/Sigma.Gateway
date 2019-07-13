@@ -1,0 +1,61 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.monitoreoUnidades.home.title">Unidades</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-unidades" [routerLink]="['/unidades/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.monitoreoUnidades.home.createLabel">
+            Create new Unidades
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="unidades?.length === 0">
+        <span jhiTranslate="gatewayApp.monitoreoUnidades.home.notFound">No unidades found</span>
+    </div>
+    <div class="table-responsive" *ngIf="unidades?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoUnidades.nombre">Nombre</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoUnidades.codigo">Codigo</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoUnidades.descripcion">Descripcion</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let unidades of unidades ;trackBy: trackId">
+                <td><a [routerLink]="['/unidades', unidades.id, 'view' ]">{{unidades.id}}</a></td>
+                <td>{{unidades.nombre}}</td>
+                <td>{{unidades.codigo}}</td>
+                <td>{{unidades.descripcion}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/unidades', unidades.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/unidades', unidades.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'unidades', { outlets: { popup: unidades.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

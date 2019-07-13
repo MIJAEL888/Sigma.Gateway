@@ -1,0 +1,9 @@
+{
+  "gatewayApp": {
+    "EstadoEmpleado": {
+      "null": "",
+      "ACTIVO": "ACTIVO",
+      "CESE": "CESE"
+    }
+  }
+}

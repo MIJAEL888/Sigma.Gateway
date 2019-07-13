@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.comercialProvincia.home.title">Provincias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-provincia" [routerLink]="['/provincia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.comercialProvincia.home.createLabel">
+            Create new Provincia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="provincias?.length === 0">
+        <span jhiTranslate="gatewayApp.comercialProvincia.home.notFound">No provincias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="provincias?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialProvincia.nombre">Nombre</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialProvincia.ubigeo">Ubigeo</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialProvincia.descripcion">Descripcion</span></th>
+            <th><span jhiTranslate="gatewayApp.comercialProvincia.departamento">Departamento</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let provincia of provincias ;trackBy: trackId">
+                <td><a [routerLink]="['/provincia', provincia.id, 'view' ]">{{provincia.id}}</a></td>
+                <td>{{provincia.nombre}}</td>
+                <td>{{provincia.ubigeo}}</td>
+                <td>{{provincia.descripcion}}</td>
+                <td>
+                    <div *ngIf="provincia.departamento">
+                        <a [routerLink]="['../departamento', provincia.departamento?.id, 'view' ]" >{{provincia.departamento?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/provincia', provincia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/provincia', provincia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'provincia', { outlets: { popup: provincia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

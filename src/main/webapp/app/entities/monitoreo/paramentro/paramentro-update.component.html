@@ -1,0 +1,99 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-paramentro-heading" jhiTranslate="gatewayApp.monitoreoParamentro.home.createOrEditLabel">Create or edit a Paramentro</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.nombre" for="field_nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" id="field_nombre"
+                           formControlName="nombre"/>
+                    <div *ngIf="editForm.get('nombre').invalid && (editForm.get('nombre').dirty || editForm.get('nombre').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('nombre').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.siglas" for="field_siglas">Siglas</label>
+                    <input type="text" class="form-control" name="siglas" id="field_siglas"
+                           formControlName="siglas"/>
+                    <div *ngIf="editForm.get('siglas').invalid && (editForm.get('siglas').dirty || editForm.get('siglas').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('siglas').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.descripcion" for="field_descripcion">Descripcion</label>
+                    <input type="text" class="form-control" name="descripcion" id="field_descripcion"
+                           formControlName="descripcion"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.costo" for="field_costo">Costo</label>
+                    <input type="number" class="form-control" name="costo" id="field_costo"
+                           formControlName="costo"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.metodologia" for="field_metodologia">Metodologia</label>
+                    <textarea class="form-control" name="metodologia" id="field_metodologia"
+                              formControlName="metodologia"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.metodoEnsayo" for="field_metodoEnsayo">Metodo Ensayo</label>
+                    <textarea class="form-control" name="metodoEnsayo" id="field_metodoEnsayo"
+                              formControlName="metodoEnsayo"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.limiteCuantificacion" for="field_limiteCuantificacion">Limite Cuantificacion</label>
+                    <input type="number" class="form-control" name="limiteCuantificacion" id="field_limiteCuantificacion"
+                           formControlName="limiteCuantificacion"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.tipoComponente" for="field_tipoComponente">Tipo Componente</label>
+                    <select class="form-control" id="field_tipoComponente" name="tipoComponente" formControlName="tipoComponente">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tipoComponenteOption.id === editForm.get('tipoComponente').value?.id ? editForm.get('tipoComponente').value : tipoComponenteOption" *ngFor="let tipoComponenteOption of tipocomponentes; trackBy: trackTipoComponenteById">{{tipoComponenteOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.normaCalidad" for="field_normaCalidad">Norma Calidad</label>
+                    <select class="form-control" id="field_normaCalidad" name="normaCalidad" formControlName="normaCalidad">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="normaCalidadOption.id === editForm.get('normaCalidad').value?.id ? editForm.get('normaCalidad').value : normaCalidadOption" *ngFor="let normaCalidadOption of normacalidads; trackBy: trackNormaCalidadById">{{normaCalidadOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.puntoMonitoreo" for="field_puntoMonitoreo">Punto Monitoreo</label>
+                    <select class="form-control" id="field_puntoMonitoreo" name="puntoMonitoreo" formControlName="puntoMonitoreo">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="puntoMonitoreoOption.id === editForm.get('puntoMonitoreo').value?.id ? editForm.get('puntoMonitoreo').value : puntoMonitoreoOption" *ngFor="let puntoMonitoreoOption of puntomonitoreos; trackBy: trackPuntoMonitoreoById">{{puntoMonitoreoOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="gatewayApp.monitoreoParamentro.unidades" for="field_unidades">Unidades</label>
+                    <select class="form-control" id="field_unidades" name="unidades" formControlName="unidades">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="unidadesOption.id === editForm.get('unidades').value?.id ? editForm.get('unidades').value : unidadesOption" *ngFor="let unidadesOption of unidades; trackBy: trackUnidadesById">{{unidadesOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

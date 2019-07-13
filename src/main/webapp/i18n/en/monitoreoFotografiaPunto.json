@@ -1,0 +1,30 @@
+{
+  "gatewayApp": {
+    "monitoreoFotografiaPunto": {
+      "home": {
+        "title": "Fotografia Puntos",
+        "createLabel": "Create a new Fotografia Punto",
+        "createOrEditLabel": "Create or edit a Fotografia Punto",
+        "notFound": "No Fotografia Punto found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Fotografia Punto {{ id }}?"
+      },
+      "detail": {
+        "title": "Fotografia Punto"
+      },
+      "nombre": "Nombre",
+      "ruta": "Ruta",
+      "extension": "Extension",
+      "fotografia": "Fotografia",
+      "puntoMonitoreo": "Punto Monitoreo"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoFotografiaPunto": {
+      "created": "A new Fotografia Punto is created with identifier {{ param }}",
+      "updated": "A Fotografia Punto is updated with identifier {{ param }}",
+      "deleted": "A Fotografia Punto is deleted with identifier {{ param }}"
+    }
+  }
+}

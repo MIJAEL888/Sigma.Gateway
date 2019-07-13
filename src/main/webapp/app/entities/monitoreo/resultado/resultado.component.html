@@ -1,0 +1,79 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.monitoreoResultado.home.title">Resultados</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resultado" [routerLink]="['/resultado/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.monitoreoResultado.home.createLabel">
+            Create new Resultado
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="resultados?.length === 0">
+        <span jhiTranslate="gatewayApp.monitoreoResultado.home.notFound">No resultados found</span>
+    </div>
+    <div class="table-responsive" *ngIf="resultados?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fechaInicio"><span jhiTranslate="gatewayApp.monitoreoResultado.fechaInicio">Fecha Inicio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="fehcaFin"><span jhiTranslate="gatewayApp.monitoreoResultado.fehcaFin">Fehca Fin</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorMinimo"><span jhiTranslate="gatewayApp.monitoreoResultado.valorMinimo">Valor Minimo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorMaximo"><span jhiTranslate="gatewayApp.monitoreoResultado.valorMaximo">Valor Maximo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorFinal"><span jhiTranslate="gatewayApp.monitoreoResultado.valorFinal">Valor Final</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="valorFinalNum"><span jhiTranslate="gatewayApp.monitoreoResultado.valorFinalNum">Valor Final Num</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codigoLaboratorio"><span jhiTranslate="gatewayApp.monitoreoResultado.codigoLaboratorio">Codigo Laboratorio</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th jhiSortBy="codigoEquipo"><span jhiTranslate="gatewayApp.monitoreoResultado.codigoEquipo">Codigo Equipo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resultado of resultados ;trackBy: trackId">
+                <td><a [routerLink]="['/resultado', resultado.id, 'view' ]">{{resultado.id}}</a></td>
+                <td>{{resultado.fechaInicio | date:'medium'}}</td>
+                <td>{{resultado.fehcaFin | date:'medium'}}</td>
+                <td>{{resultado.valorMinimo}}</td>
+                <td>{{resultado.valorMaximo}}</td>
+                <td>{{resultado.valorFinal}}</td>
+                <td>{{resultado.valorFinalNum}}</td>
+                <td>{{resultado.codigoLaboratorio}}</td>
+                <td>{{resultado.codigoEquipo}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/resultado', resultado.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/resultado', resultado.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'resultado', { outlets: { popup: resultado.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div [hidden]="resultados?.length === 0">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="totalItems" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

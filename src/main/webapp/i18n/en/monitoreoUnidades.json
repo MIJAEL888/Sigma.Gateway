@@ -1,0 +1,29 @@
+{
+  "gatewayApp": {
+    "monitoreoUnidades": {
+      "home": {
+        "title": "Unidades",
+        "createLabel": "Create a new Unidades",
+        "createOrEditLabel": "Create or edit a Unidades",
+        "notFound": "No Unidades found"
+      },
+      "delete": {
+        "question": "Are you sure you want to delete Unidades {{ id }}?"
+      },
+      "detail": {
+        "title": "Unidades"
+      },
+      "nombre": "Nombre",
+      "codigo": "Codigo",
+      "descripcion": "Descripcion",
+      "paramentro": "Paramentro"
+    }
+  },
+  "monitoreoApp": {
+    "monitoreoUnidades": {
+      "created": "A new Unidades is created with identifier {{ param }}",
+      "updated": "A Unidades is updated with identifier {{ param }}",
+      "deleted": "A Unidades is deleted with identifier {{ param }}"
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="empleado">
+            <h2><span jhiTranslate="gatewayApp.rrhhEmpleado.detail.title">Empleado</span> {{empleado.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.nombre">Nombre</span></dt>
+                <dd>
+                    <span>{{empleado.nombre}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.apellidoPaterno">Apellido Paterno</span></dt>
+                <dd>
+                    <span>{{empleado.apellidoPaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.apellidoMaterno">Apellido Materno</span></dt>
+                <dd>
+                    <span>{{empleado.apellidoMaterno}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoDocumento">Tipo Documento</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.TipoDocumento.' + empleado.tipoDocumento}}">{{empleado.tipoDocumento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.numeroDocumento">Numero Documento</span></dt>
+                <dd>
+                    <span>{{empleado.numeroDocumento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaNacimiento">Fecha Nacimiento</span></dt>
+                <dd>
+                    <span>{{empleado.fechaNacimiento}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaIngreso">Fecha Ingreso</span></dt>
+                <dd>
+                    <span>{{empleado.fechaIngreso}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoContrato">Tipo Contrato</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.TipoContrato.' + empleado.tipoContrato}}">{{empleado.tipoContrato}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.tipoAportacion">Tipo Aportacion</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.TipoPension.' + empleado.tipoAportacion}}">{{empleado.tipoAportacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.estado">Estado</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.EstadoEmpleado.' + empleado.estado}}">{{empleado.estado}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaCreacion">Fecha Creacion</span></dt>
+                <dd>
+                    <span>{{empleado.fechaCreacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.fechaActualizacion">Fecha Actualizacion</span></dt>
+                <dd>
+                    <span>{{empleado.fechaActualizacion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.direccion">Direccion</span></dt>
+                <dd>
+                    <span>{{empleado.direccion}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.estadoCivil">Estado Civil</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'gatewayApp.EstadoCivil.' + empleado.estadoCivil}}">{{empleado.estadoCivil}}</span>
+                </dd>
+                <dt><span jhiTranslate="gatewayApp.rrhhEmpleado.posicion">Posicion</span></dt>
+                <dd>
+                    <div *ngIf="empleado.posicion">
+                        <a [routerLink]="['/posicion', empleado.posicion?.id, 'view']">{{empleado.posicion?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/empleado', empleado.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.home.title">Resultado Metereologias</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-resultado-metereologia" [routerLink]="['/resultado-metereologia/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.home.createLabel">
+            Create new Resultado Metereologia
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="resultadoMetereologias?.length === 0">
+        <span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.home.notFound">No resultadoMetereologias found</span>
+    </div>
+    <div class="table-responsive" *ngIf="resultadoMetereologias?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.fecha">Fecha</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.valor">Valor</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.valorDecimal">Valor Decimal</span></th>
+            <th><span jhiTranslate="gatewayApp.monitoreoResultadoMetereologia.resultado">Resultado</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resultadoMetereologia of resultadoMetereologias ;trackBy: trackId">
+                <td><a [routerLink]="['/resultado-metereologia', resultadoMetereologia.id, 'view' ]">{{resultadoMetereologia.id}}</a></td>
+                <td>{{resultadoMetereologia.fecha | date:'medium'}}</td>
+                <td>{{resultadoMetereologia.valor}}</td>
+                <td>{{resultadoMetereologia.valorDecimal}}</td>
+                <td>
+                    <div *ngIf="resultadoMetereologia.resultado">
+                        <a [routerLink]="['../resultado', resultadoMetereologia.resultado?.id, 'view' ]" >{{resultadoMetereologia.resultado?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/resultado-metereologia', resultadoMetereologia.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/resultado-metereologia', resultadoMetereologia.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'resultado-metereologia', { outlets: { popup: resultadoMetereologia.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
