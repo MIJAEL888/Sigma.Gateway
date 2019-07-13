@@ -16,8 +16,7 @@
       "configServer": "Microservice Config Server",
       "hystrix": "Hystrix",
       "diskSpace": "Espacio en disco",
-      "mail": "Email",
-      "db": "Database"
+      "mail": "Email"
     },
     "table": {
       "service": "Nombre del servicio",

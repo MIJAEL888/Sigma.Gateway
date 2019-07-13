@@ -15,7 +15,6 @@ import { GatewaySharedModule } from 'app/shared';
 import { GatewayCoreModule } from 'app/core';
 import { GatewayAppRoutingModule } from './app-routing.module';
 import { GatewayHomeModule } from './home/home.module';
-import { GatewayAccountModule } from './account/account.module';
 import { GatewayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -35,7 +34,6 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     GatewaySharedModule.forRoot(),
     GatewayCoreModule,
     GatewayHomeModule,
-    GatewayAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
     GatewayAppRoutingModule
