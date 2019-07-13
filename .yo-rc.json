@@ -22,7 +22,7 @@
     "serviceDiscoveryType": "eureka",
     "buildTool": "gradle",
     "enableSwaggerCodegen": false,
-    "jwtSecretKey": "Y2M5Yjc3MzUyNmY2MzlmZTQ5ZjMwZDMwNjI4YTk2NDQ4YmFhYWMxOGIwNmM3MzgzYzgzMGUyOWM4NGMxNDM4ODE5NjM3MDA2NzMxNTU2NTE4NjM4MDA3NDdjNGUyOTdmZTQ4MWE5YTg5MjM3MjIxMDhmZTlmMWM4MzM5YTA2MmI=",
+    "jwtSecretKey": "NDlhY2Q0MmQzZWNjNWIzNmQyZjExNDM1YjVlNmJmODRkN2Y4YWFiNjAzYzNiMDQ4YzFkZDZkNTc5MjY1MGViOGU1NTA4NTFjZDgxNmM0MGRlMzU1ZjA0Y2VhMjM2ZTE1ZmM1Y2E4MjM5NzUxMzUxMjFkODRkMWRjMzhmNTY3MjE=",
     "useSass": true,
     "clientPackageManager": "npm",
     "clientFramework": "angularX",
