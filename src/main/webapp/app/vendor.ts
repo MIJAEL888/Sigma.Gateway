@@ -39,10 +39,34 @@ import {
   faTrashAlt,
   faAsterisk,
   faTasks,
-  faHome
+  faHome,
+  faMale,
+  faUsers,
+  faTag,
+  faSitemap,
+  faTruck,
+  faCar,
+  faChartArea,
+  faChartLine,
+  faChartBar,
+  faChartPie,
+  faCircle,
+  faCheck
 } from '@fortawesome/free-solid-svg-icons';
 
 // Adds the SVG icon to the library so you can use it in your page
+library.add(faCheck);
+library.add(faCircle);
+library.add(faChartPie);
+library.add(faChartLine);
+library.add(faChartBar);
+library.add(faMale);
+library.add(faUsers);
+library.add(faTag);
+library.add(faSitemap);
+library.add(faTruck);
+library.add(faCar);
+library.add(faChartArea);
 library.add(faUser);
 library.add(faSort);
 library.add(faSortUp);

@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light navbar-expand-md bg-light">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
         <span class="logo-img"></span>
-        <span jhiTranslate="global.title" class="navbar-title">Gateway</span> <span class="navbar-version">{{version}}</span>
+        <span jhiTranslate="global.title" class="navbar-title">SIGMA</span> <span class="navbar-version">{{version}}</span>
     </a>
     <a class="navbar-toggler d-lg-none" href="javascript:void(0);" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleNavbar()">
         <fa-icon icon="bars"></fa-icon>
@@ -20,34 +20,49 @@
             <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="entity-menu">
                     <span>
-                        <fa-icon icon="th-list"></fa-icon>
-                        <span jhiTranslate="global.menu.entities.main">
-                            Entities
+                        <fa-icon icon="male"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.rrhh">
+                            RRHH
                         </span>
                     </span>
                 </a>
                 <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
                         <a class="dropdown-item" routerLink="empleado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="users" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.rrhhEmpleado">Empleado</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="posicion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="tag" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.rrhhPosicion">Posicion</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="area" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="sitemap" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.rrhhArea">Area</span>
                         </a>
                     </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
+
+            <!-- menu de Logistica -->
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="logistic-menu">
+                    <span>
+                        <fa-icon icon="truck"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.logistica">
+                            Logistica
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
                         <a class="dropdown-item" routerLink="equipo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="car" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.logisticaEquipo">Equipo</span>
                         </a>
                     </li>
@@ -87,6 +102,21 @@
                             <span jhiTranslate="global.menu.entities.logisticaTipoSeguro">Tipo Seguro</span>
                         </a>
                     </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
+
+            <!-- menu de Comercial -->
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="comercial-menu">
+                    <span>
+                        <fa-icon icon="book"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.comercial">
+                            Entities
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
                         <a class="dropdown-item" routerLink="servicio" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
                             <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
@@ -143,133 +173,149 @@
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="sede" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.comercialSede">Sede</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="contacto-sede" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.comercialContactoSede">Contacto Sede</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="distrito" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.comercialDistrito">Distrito</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="provincia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.comercialProvincia">Provincia</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="departamento" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.comercialDepartamento">Departamento</span>
                         </a>
                     </li>
+                    <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+                </ul>
+            </li>
+
+            <!-- menu de Monitoreo -->
+            <li *ngSwitchCase="true" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="monitoreo-menu">
+                    <span>
+                        <fa-icon icon="chart-area"></fa-icon>
+                        <span jhiTranslate="global.menu.entities.monitoreo">
+                            Entities
+                        </span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="entity-menu">
                     <li>
                         <a class="dropdown-item" routerLink="proyecto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoProyecto">Proyecto</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="equipo-monitoreo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoEquipoMonitoreo">Equipo Monitoreo</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="laboratorio-monitoreo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoLaboratorioMonitoreo">Laboratorio Monitoreo</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="observacion" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoObservacion">Observacion</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="componente" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoComponente">Componente</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="tipo-componente" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoTipoComponente">Tipo Componente</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="paramentro" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoParamentro">Paramentro</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="norma-calidad" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoNormaCalidad">Norma Calidad</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="punto-monitoreo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoPuntoMonitoreo">Punto Monitoreo</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="punto-monitoreo-obs" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoPuntoMonitoreoObs">Punto Monitoreo Obs</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fotografia-punto" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoFotografiaPunto">Fotografia Punto</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="fotografia-monitoreo" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoFotografiaMonitoreo">Fotografia Monitoreo</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="unidades" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoUnidades">Unidades</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="resultado" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoResultado">Resultado</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="resultado-emisiones" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoResultadoEmisiones">Resultado Emisiones</span>
                         </a>
                     </li>
                     <li>
                         <a class="dropdown-item" routerLink="resultado-metereologia" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                            <fa-icon icon="asterisk" fixedWidth="true"></fa-icon>
+                            <fa-icon icon="check" fixedWidth="true"></fa-icon>
                             <span jhiTranslate="global.menu.entities.monitoreoResultadoMetereologia">Resultado Metereologia</span>
                         </a>
                     </li>
                     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
                 </ul>
             </li>
+
             <li *jhiHasAnyAuthority="'ROLE_ADMIN'" ngbDropdown class="nav-item dropdown pointer" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
                 <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:void(0);" id="admin-menu">
                     <span>
