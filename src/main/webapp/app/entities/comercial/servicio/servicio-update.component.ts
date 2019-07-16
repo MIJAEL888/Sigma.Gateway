@@ -18,6 +18,8 @@ import { IRequisitosSeguridad } from 'app/shared/model/comercial/requisitos-segu
 import { RequisitosSeguridadService } from 'app/entities/comercial/requisitos-seguridad';
 import { ISede } from 'app/shared/model/comercial/sede.model';
 import { SedeService } from 'app/entities/comercial/sede';
+import { ICliente } from 'app/shared/model/comercial/cliente.model';
+import { ClienteService } from 'app/entities/comercial/cliente';
 
 @Component({
   selector: 'jhi-servicio-update',
@@ -25,7 +27,7 @@ import { SedeService } from 'app/entities/comercial/sede';
 })
 export class ServicioUpdateComponent implements OnInit {
   isSaving: boolean;
-
+  clientes: ICliente[];
   tiposervicios: ITipoServicios[];
 
   tiposolicituds: ITipoSolicitud[];
@@ -52,13 +54,15 @@ export class ServicioUpdateComponent implements OnInit {
     tipoSolicitud: [],
     tipoInduccion: [],
     requisitosSeguridad: [],
-    sede: []
+    sede: [],
+    cliente: []
   });
 
   constructor(
     protected dataUtils: JhiDataUtils,
     protected jhiAlertService: JhiAlertService,
     protected servicioService: ServicioService,
+    protected clienteService: ClienteService,
     protected tipoServiciosService: TipoServiciosService,
     protected tipoSolicitudService: TipoSolicitudService,
     protected tipoInduccionService: TipoInduccionService,
@@ -101,13 +105,20 @@ export class ServicioUpdateComponent implements OnInit {
         map((response: HttpResponse<IRequisitosSeguridad[]>) => response.body)
       )
       .subscribe((res: IRequisitosSeguridad[]) => (this.requisitosseguridads = res), (res: HttpErrorResponse) => this.onError(res.message));
-    this.sedeService
+    /*    this.sedeService
       .query()
       .pipe(
         filter((mayBeOk: HttpResponse<ISede[]>) => mayBeOk.ok),
         map((response: HttpResponse<ISede[]>) => response.body)
       )
-      .subscribe((res: ISede[]) => (this.sedes = res), (res: HttpErrorResponse) => this.onError(res.message));
+      .subscribe((res: ISede[]) => (this.sedes = res), (res: HttpErrorResponse) => this.onError(res.message));*/
+    this.clienteService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<ICliente[]>) => mayBeOk.ok),
+        map((response: HttpResponse<ICliente[]>) => response.body)
+      )
+      .subscribe((res: ICliente[]) => (this.clientes = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   updateForm(servicio: IServicio) {
@@ -174,6 +185,16 @@ export class ServicioUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.servicioService.create(servicio));
     }
+  }
+
+  changeCliente() {
+    this.sedeService
+      .query()
+      .pipe(
+        filter((mayBeOk: HttpResponse<ISede[]>) => mayBeOk.ok),
+        map((response: HttpResponse<ISede[]>) => response.body)
+      )
+      .subscribe((res: ISede[]) => (this.sedes = res), (res: HttpErrorResponse) => this.onError(res.message));
   }
 
   private createFromForm(): IServicio {

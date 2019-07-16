@@ -177,5 +177,5 @@
     "idexists": "A new {{ entityName }} cannot already have an ID",
     "idnull": "Invalid ID"
   },
-  "footer": "This is your footer"
+  "footer": "SIGMA - Sistema de Gestion de Monitoreo Ambiental - Develop by MIJAEL888 (mijael888@gmail.com)"
 }

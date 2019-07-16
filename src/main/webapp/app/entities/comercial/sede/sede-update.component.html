@@ -88,14 +88,16 @@
                     <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.cliente" for="field_cliente">Cliente</label>
                     <select class="form-control" id="field_cliente" name="cliente" formControlName="cliente">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id === editForm.get('cliente').value?.id ? editForm.get('cliente').value : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                        <option [ngValue]="clienteOption.id === editForm.get('cliente').value?.id ? editForm.get('cliente').value : clienteOption"
+                                *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.razonSocial}}</option>
                     </select>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="gatewayApp.comercialSede.distrito" for="field_distrito">Distrito</label>
                     <select class="form-control" id="field_distrito" name="distrito" formControlName="distrito">
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="distritoOption.id === editForm.get('distrito').value?.id ? editForm.get('distrito').value : distritoOption" *ngFor="let distritoOption of distritos; trackBy: trackDistritoById">{{distritoOption.id}}</option>
+                        <option [ngValue]="distritoOption.id === editForm.get('distrito').value?.id ? editForm.get('distrito').value : distritoOption"
+                                *ngFor="let distritoOption of distritos; trackBy: trackDistritoById">{{distritoOption.nombre}}</option>
                     </select>
                 </div>
             </div>

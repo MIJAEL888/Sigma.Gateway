@@ -16,62 +16,64 @@
     <div class="table-responsive" *ngIf="servicios?.length > 0">
         <table class="table table-striped">
             <thead>
-            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
-            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="codigo"><span jhiTranslate="gatewayApp.comercialServicio.codigo">Codigo</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="fechaEntrega"><span jhiTranslate="gatewayApp.comercialServicio.fechaEntrega">Fecha Entrega</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="nombreSolicitante"><span jhiTranslate="gatewayApp.comercialServicio.nombreSolicitante">Nombre Solicitante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="numeroSolicitante"><span jhiTranslate="gatewayApp.comercialServicio.numeroSolicitante">Numero Solicitante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="observacion"><span jhiTranslate="gatewayApp.comercialServicio.observacion">Observacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="descripcion"><span jhiTranslate="gatewayApp.comercialServicio.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="estado"><span jhiTranslate="gatewayApp.comercialServicio.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="codigoCliente"><span jhiTranslate="gatewayApp.comercialServicio.codigoCliente">Codigo Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="codigoSede"><span jhiTranslate="gatewayApp.comercialServicio.codigoSede">Codigo Sede</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoServicios.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoServicios">Tipo Servicios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoSolicitud.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoSolicitud">Tipo Solicitud</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="tipoInduccion.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoInduccion">Tipo Induccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="requisitosSeguridad.id"><span jhiTranslate="gatewayApp.comercialServicio.requisitosSeguridad">Requisitos Seguridad</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th jhiSortBy="sede.id"><span jhiTranslate="gatewayApp.comercialServicio.sede">Sede</span> <fa-icon [icon]="'sort'"></fa-icon></th>
-            <th></th>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+                <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="sede.id"><span jhiTranslate="gatewayApp.comercialServicio.sede">Sede</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="tipoServicios.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoServicios">Tipo Servicios</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+<!--            <th jhiSortBy="codigo"><span jhiTranslate="gatewayApp.comercialServicio.codigo">Codigo</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+                <th jhiSortBy="fechaEntrega"><span jhiTranslate="gatewayApp.comercialServicio.fechaEntrega">Fecha Entrega</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="nombreSolicitante"><span jhiTranslate="gatewayApp.comercialServicio.nombreSolicitante">Nombre Solicitante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+                <th jhiSortBy="numeroSolicitante"><span jhiTranslate="gatewayApp.comercialServicio.numeroSolicitante">Numero Solicitante</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+<!--                <th jhiSortBy="observacion"><span jhiTranslate="gatewayApp.comercialServicio.observacion">Observacion</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+<!--                <th jhiSortBy="descripcion"><span jhiTranslate="gatewayApp.comercialServicio.descripcion">Descripcion</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+                <th jhiSortBy="estado"><span jhiTranslate="gatewayApp.comercialServicio.estado">Estado</span> <fa-icon [icon]="'sort'"></fa-icon></th>
+<!--            <th jhiSortBy="codigoCliente"><span jhiTranslate="gatewayApp.comercialServicio.codigoCliente">Codigo Cliente</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+<!--            <th jhiSortBy="codigoSede"><span jhiTranslate="gatewayApp.comercialServicio.codigoSede">Codigo Sede</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+
+<!--            <th jhiSortBy="tipoSolicitud.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoSolicitud">Tipo Solicitud</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+<!--            <th jhiSortBy="tipoInduccion.id"><span jhiTranslate="gatewayApp.comercialServicio.tipoInduccion">Tipo Induccion</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+<!--            <th jhiSortBy="requisitosSeguridad.id"><span jhiTranslate="gatewayApp.comercialServicio.requisitosSeguridad">Requisitos Seguridad</span> <fa-icon [icon]="'sort'"></fa-icon></th>-->
+                <th></th>
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let servicio of servicios ;trackBy: trackId">
                 <td><a [routerLink]="['/servicio', servicio.id, 'view' ]">{{servicio.id}}</a></td>
-                <td>{{servicio.codigo}}</td>
-                <td>{{servicio.fechaEntrega | date:'mediumDate'}}</td>
-                <td>{{servicio.nombreSolicitante}}</td>
-                <td>{{servicio.numeroSolicitante}}</td>
-                <td>{{servicio.observacion}}</td>
-                <td>{{servicio.descripcion}}</td>
-                <td jhiTranslate="{{'gatewayApp.EstadoServicio.' + servicio.estado}}">{{servicio.estado}}</td>
-                <td>{{servicio.codigoCliente}}</td>
-                <td>{{servicio.codigoSede}}</td>
                 <td>
-                    <div *ngIf="servicio.tipoServicios">
-                        <a [routerLink]="['../tipo-servicios', servicio.tipoServicios?.id, 'view' ]" >{{servicio.tipoServicios?.id}}</a>
+                    <div *ngIf="servicio.sede">
+                        <a [routerLink]="['../sede', servicio.sede?.id, 'view' ]" >{{servicio.sede?.referencia}}</a>
                     </div>
                 </td>
                 <td>
                     <div *ngIf="servicio.tipoSolicitud">
-                        <a [routerLink]="['../tipo-solicitud', servicio.tipoSolicitud?.id, 'view' ]" >{{servicio.tipoSolicitud?.id}}</a>
+                        <a [routerLink]="['../tipo-solicitud', servicio.tipoSolicitud?.id, 'view' ]" >{{servicio.tipoSolicitud?.nombre}}</a>
                     </div>
                 </td>
-                <td>
-                    <div *ngIf="servicio.tipoInduccion">
-                        <a [routerLink]="['../tipo-induccion', servicio.tipoInduccion?.id, 'view' ]" >{{servicio.tipoInduccion?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="servicio.requisitosSeguridad">
-                        <a [routerLink]="['../requisitos-seguridad', servicio.requisitosSeguridad?.id, 'view' ]" >{{servicio.requisitosSeguridad?.id}}</a>
-                    </div>
-                </td>
-                <td>
-                    <div *ngIf="servicio.sede">
-                        <a [routerLink]="['../sede', servicio.sede?.id, 'view' ]" >{{servicio.sede?.id}}</a>
-                    </div>
-                </td>
+<!--                <td>{{servicio.codigo}}</td>-->
+                <td>{{servicio.fechaEntrega | date:'mediumDate'}}</td>
+                <td>{{servicio.nombreSolicitante}}</td>
+                <td>{{servicio.numeroSolicitante}}</td>
+<!--                <td>{{servicio.observacion}}</td>-->
+<!--                <td>{{servicio.descripcion}}</td>-->
+                <td jhiTranslate="{{'gatewayApp.EstadoServicio.' + servicio.estado}}">{{servicio.estado}}</td>
+<!--                <td>{{servicio.codigoCliente}}</td>-->
+<!--                <td>{{servicio.codigoSede}}</td>-->
+<!--                <td>-->
+<!--                    <div *ngIf="servicio.tipoServicios">-->
+<!--                        <a [routerLink]="['../tipo-servicios', servicio.tipoServicios?.id, 'view' ]" >{{servicio.tipoServicios?.id}}</a>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <div *ngIf="servicio.tipoInduccion">-->
+<!--                        <a [routerLink]="['../tipo-induccion', servicio.tipoInduccion?.id, 'view' ]" >{{servicio.tipoInduccion?.id}}</a>-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--                <td>-->
+<!--                    <div *ngIf="servicio.requisitosSeguridad">-->
+<!--                        <a [routerLink]="['../requisitos-seguridad', servicio.requisitosSeguridad?.id, 'view' ]" >{{servicio.requisitosSeguridad?.id}}</a>-->
+<!--                    </div>-->
+<!--                </td>-->
+
                 <td class="text-right">
                     <div class="btn-group">
                         <button type="submit"

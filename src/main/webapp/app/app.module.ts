@@ -20,6 +20,8 @@ import { GatewayEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import { LayoutModule } from 'angular-admin-lte';
+import { BoxModule } from 'angular-admin-lte';
 
 @NgModule({
   imports: [
@@ -38,7 +40,9 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     GatewayAccountModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     GatewayEntityModule,
-    GatewayAppRoutingModule
+    GatewayAppRoutingModule,
+    LayoutModule,
+    BoxModule
   ],
   declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   providers: [
